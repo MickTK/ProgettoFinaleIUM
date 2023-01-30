@@ -9,23 +9,24 @@ import java.util.List;
 public class User implements Serializable {
 
     /* Attributes */
-    public String username;            // Identificativo dell'utente
-    public String nome;                // Nome dell'utente
-    public String cognome;             // Cognome dell'utente
-    public String number;              // Numero di cellulare
-    public String email;               // Email dell'utente
-    public String password;            // Password d'accesso
-    public String profilePicture;      // Immagine del profilo
-    public List<Insertion> insertions; // Inserzioni dell'utente
+    public String username;          // Identificativo dell'utente
+    public String name;              // Nome dell'utente
+    public String surname;           // Cognome dell'utente
+    public String number;            // Numero di cellulare
+    public String email;             // Email dell'utente
+    public String password;          // Password d'accesso
+    public String profilePicture;    // Immagine del profilo
+    public List<Integer> insertions; // Inserzioni dell'utente
 
     /* Constructor */
-    public User(){
-        username = null;
-        nome = null;
-        cognome = null;
+    public User(String username, String name, String surname, String password){
+        this.username = username;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+
         number = null;
         email = null;
-        password = null;
         profilePicture = null;
         insertions = new ArrayList<>();
     }

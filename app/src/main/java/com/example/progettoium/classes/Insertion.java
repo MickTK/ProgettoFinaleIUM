@@ -9,6 +9,8 @@ import java.util.List;
 public class Insertion implements Serializable {
 
     /* Attributes */
+    public int id;                // Identificativo dell'annuncio
+    public String owner;          // Locatore
     public String city;           // Città dell'alloggio
     public String address;        // Indirizzo dell'alloggio
     public String description;    // Descrizione dell'annuncio
@@ -16,18 +18,12 @@ public class Insertion implements Serializable {
     public boolean status;        // Stato dell'annuncio: true -> online, false -> archiviato
 
     /* Constructor */
-    public Insertion(){
-        city = null;
-        address = null;
-        description = null;
-        pictures = new ArrayList<>();
-        status = true;
-    }
-    public Insertion(String city, String address, String description, ArrayList<String> pictures) {
+    public Insertion(int id, String owner, String city, String address, String description) {
+        this.id = id;
+        this.owner = owner;
         this.city = city;
         this.address = address;
         this.description = description;
-        this.pictures = pictures;
         status = true;
     }
 
