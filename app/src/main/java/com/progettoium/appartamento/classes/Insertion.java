@@ -1,9 +1,8 @@
-package com.example.progettoium.classes;
+package com.progettoium.appartamento.classes;
 
 import android.net.Uri;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Insertion implements Serializable {

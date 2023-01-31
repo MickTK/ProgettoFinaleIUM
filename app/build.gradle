@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.progettoium"
+        applicationId "com.progettoium.appartamento"
         minSdk 30
         targetSdk 32
         versionCode 1

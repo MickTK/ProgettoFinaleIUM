@@ -1,4 +1,4 @@
-package com.example.progettoium;
+package com.progettoium.appartamento;
 
 import org.junit.Test;
 

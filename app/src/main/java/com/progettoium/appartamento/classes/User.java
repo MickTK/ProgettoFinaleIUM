@@ -1,4 +1,4 @@
-package com.example.progettoium.classes;
+package com.progettoium.appartamento.classes;
 
 import android.net.Uri;
 

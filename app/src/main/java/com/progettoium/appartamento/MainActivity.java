@@ -1,8 +1,10 @@
-package com.example.progettoium;
+package com.progettoium.appartamento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.progettoium.R;
 
 public class MainActivity extends AppCompatActivity {
 
