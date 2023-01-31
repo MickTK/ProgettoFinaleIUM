@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.progettoium'
+    namespace 'com.progettoium.appartamento'
     compileSdk 32
 
     defaultConfig {

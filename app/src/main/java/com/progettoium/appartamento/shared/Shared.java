@@ -18,15 +18,13 @@ public class Shared {
     private static SharedPreferences preferences;
 
     private static List<User> userList;           // Lista di tutti gli utenti registrati nell'applicazione
-    public static User current;                   // Dati dell'utente corrente
     private static List<Insertion> insertionList; // Lista di tutti gli annunci registrati nell'applicazione
 
     public static class UserData{
-        /**********************************************************************************************/
-        /** Metodi per la manipolazione degli utenti **/
+        public static User current;                   // Dati dell'utente corrente
 
-        // Recupera e salva in currentUser l'utente avente i parametri inseriti
-        public static void retrieveCurrentUser(String username, String password){
+        // Imposta l'utente corrente
+        public static void setCurrent(String username, String password){
             for (User user : userList){
                 if(user.username.equals(username) && user.password.equals(password)){
                     current = user;
@@ -36,20 +34,20 @@ public class Shared {
             current = null;
         }
 
-        // Controlla la correttezza di una data password in relazione ad un dato utente
-        public static boolean checkUserPassword(String username, String password){
+        // Controlla l'esistenza di un dato utente
+        public static boolean exists(String username){
             for (User user : userList){
-                if(user.username.equals(username) && user.password.equals(password)){
+                if(user.username.equals(username)){
                     return true;
                 }
             }
             return false;
         }
 
-        // Controlla l'esistenza di un dato utente
-        public static boolean checkUserExistence(String username){
+        // Controlla la correttezza di una data password in relazione ad un dato utente
+        public static boolean exists(String username, String password){
             for (User user : userList){
-                if(user.username.equals(username)){
+                if(user.username.equals(username) && user.password.equals(password)){
                     return true;
                 }
             }
@@ -58,10 +56,7 @@ public class Shared {
     }
 
     public static class InsertionData{
-        /**********************************************************************************************/
-        /** Metodi per la manipolazione degli annunci **/
-
-        public static int createInsertion(User user, String city, String address, String description){
+        public static int add(User user, String city, String address, String description){
             int id = insertionList.size();
             Insertion insertion = new Insertion(id, user.username, city, address, description);
 
@@ -100,10 +95,7 @@ public class Shared {
         }
     }
 
-    /**********************************************************************************************/
-    /** Metodi per il salvataggio e il recupero della lista di utenti nella/dalla memoria **/
-
-    // Salva la lista di utenti e ti loro attributi
+    // Salva la lista di utenti e i loro attributi
     public static boolean savaApplicationData(){
         preferences.edit().putString("users", new Gson().toJson(userList)).apply();
         preferences.edit().putString("insertions", new Gson().toJson(insertionList)).apply();
@@ -116,7 +108,7 @@ public class Shared {
         preferences = context.getSharedPreferences("data", MODE_PRIVATE);
 
         userList = new Gson().fromJson(preferences.getString("users", null), List.class);
-        userList = new Gson().fromJson(preferences.getString("insertions", null), List.class);
+        insertionList = new Gson().fromJson(preferences.getString("insertions", null), List.class);
 
         return true;
     }

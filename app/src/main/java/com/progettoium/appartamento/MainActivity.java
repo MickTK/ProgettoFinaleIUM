@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.progettoium.R;
+import com.progettoium.appartamento.R;
 
 public class MainActivity extends AppCompatActivity {
 
