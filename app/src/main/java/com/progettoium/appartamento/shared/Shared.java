@@ -21,7 +21,7 @@ public class Shared {
     private static List<Insertion> insertionList; // Lista di tutti gli annunci registrati nell'applicazione
 
     public static class UserData{
-        public static User current;                   // Dati dell'utente corrente
+        public static User current = null; // Dati dell'utente corrente
 
         // Imposta l'utente corrente
         public static void setCurrent(String username, String password){
@@ -58,10 +58,9 @@ public class Shared {
     public static class InsertionData{
         public static int add(User user, String city, String address, String description){
             int id = insertionList.size();
+            id = id > 0 ? insertionList.get(id-1).id + 1 : 0;
             Insertion insertion = new Insertion(id, user.username, city, address, description);
-
             insertionList.add(insertion);
-
             return id;
         }
 
@@ -108,7 +107,9 @@ public class Shared {
         preferences = context.getSharedPreferences("data", MODE_PRIVATE);
 
         userList = new Gson().fromJson(preferences.getString("users", null), List.class);
+        if (userList == null) userList = new ArrayList<>();
         insertionList = new Gson().fromJson(preferences.getString("insertions", null), List.class);
+        if (insertionList == null) insertionList = new ArrayList<>();
 
         return true;
     }
