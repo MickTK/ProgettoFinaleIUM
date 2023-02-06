@@ -16,6 +16,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!-- Per il logo-->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@color/celeste"
+                android:src="@drawable/logo"
+                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,10 +80,10 @@
                 android:layout_width="140dp"
                 android:layout_height="54dp"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="@color/celeste"
                 android:text="Accedi"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -112,7 +121,7 @@
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:textStyle="italic"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/purple_700"
                 android:linksClickable="true"
                 android:id="@+id/signIn"
                 android:clickable="true"
