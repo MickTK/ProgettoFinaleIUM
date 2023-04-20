@@ -53,6 +53,25 @@ public class Shared {
             }
             return false;
         }
+
+        // Aggiunge un utente alla lista degli utente
+        public static void add(User user){
+            userList.add(user);
+        }
+
+        // Restituisce l'oggetto utente avente lo username dato
+        public static User get(String username){
+            for (User user : userList){
+                if(user.username.equals(username)){
+                    return user;
+                }
+            }
+            return null;
+        }
+
+        public static Integer size(){
+            return userList.size();
+        }
     }
 
     public static class InsertionData{
@@ -95,7 +114,7 @@ public class Shared {
     }
 
     // Salva la lista di utenti e i loro attributi
-    public static boolean savaApplicationData(){
+    public static boolean saveApplicationData(){
         preferences.edit().putString("users", new Gson().toJson(userList)).apply();
         preferences.edit().putString("insertions", new Gson().toJson(insertionList)).apply();
 
@@ -104,8 +123,10 @@ public class Shared {
 
     // Carica la lista di utenti e i loro attributi
     public static boolean loadApplicationData(@NonNull Context context){
-        preferences = context.getSharedPreferences("data", MODE_PRIVATE);
+        // Non fa nulla se l'applicazione è già stata avviata
+        if (userList != null && insertionList != null) return false;
 
+        preferences = context.getSharedPreferences("data", MODE_PRIVATE);
         userList = new Gson().fromJson(preferences.getString("users", null), List.class);
         if (userList == null) userList = new ArrayList<>();
         insertionList = new Gson().fromJson(preferences.getString("insertions", null), List.class);

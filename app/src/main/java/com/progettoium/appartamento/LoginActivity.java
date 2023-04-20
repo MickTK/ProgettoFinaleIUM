@@ -2,7 +2,9 @@ package com.progettoium.appartamento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,11 +26,13 @@ public class LoginActivity extends AppCompatActivity {
 
         Shared.loadApplicationData(getApplicationContext());
 
+        // Attributi
         username = findViewById(R.id.username);
         passw = findViewById(R.id.passw);
         loginButton = findViewById(R.id.loginButton);
         signIn = findViewById(R.id.signIn);
 
+        // Listener
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,8 +52,12 @@ public class LoginActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                signIn();
             }
         });
+    }
+
+    private void signIn(){
+        startActivity(new Intent(this, RegistrazioneActivity.class));
     }
 }
