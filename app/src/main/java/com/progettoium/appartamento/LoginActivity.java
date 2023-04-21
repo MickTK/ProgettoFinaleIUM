@@ -15,6 +15,8 @@ import com.progettoium.appartamento.shared.Shared;
 
 public class LoginActivity extends AppCompatActivity {
 
+    static boolean startUp = true;
+
     EditText username, passw;
     Button loginButton;
     TextView signIn;
@@ -24,7 +26,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Shared.loadApplicationData(getApplicationContext());
+        // Dati dell'applicazione
+        Shared.setSharedPreferences(getApplicationContext());
+        if (startUp) Shared.loadApplicationData();
+        // Shared.clearApplicationData();
+        // Shared.saveApplicationData();
+        startUp = false;
 
         // Attributi
         username = findViewById(R.id.username);
@@ -36,17 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!Shared.UserData.exists(username.getText().toString())){
-                    // Lo username inserito non esiste
-                }
-                else if(!Shared.UserData.exists(username.getText().toString(),passw.getText().toString())){
-                    // Lo username inserito esiste ma la password è errata
-                }
-                else{
-                    // Lo username esiste e la password è corretta
-                    Shared.UserData.setCurrent(username.getText().toString(),passw.getText().toString());
-                    // L'utente sarà accessibile con "Shared.UserData.current"
-                }
+
             }
         });
         signIn.setOnClickListener(new View.OnClickListener() {

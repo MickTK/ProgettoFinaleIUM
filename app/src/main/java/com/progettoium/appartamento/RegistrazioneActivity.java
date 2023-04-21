@@ -45,7 +45,8 @@ public class RegistrazioneActivity extends AppCompatActivity {
                         surname.getText().toString(),
                         password1.getText().toString()
                 );
-                Shared.UserData.add(user);
+                Shared.userList.add(user);    // Aggiunge l'utente alla lista
+                Shared.saveApplicationData(); // Salva i dati dell'applicazione
 
                 // Cambia activity
                 goToLogin();
