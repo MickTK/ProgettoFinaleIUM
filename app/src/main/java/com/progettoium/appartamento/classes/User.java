@@ -9,34 +9,32 @@ import java.util.List;
 public class User implements Serializable {
 
     /* Attributes */
-    public String username;          // Identificativo dell'utente
-    public String name;              // Nome dell'utente
-    public String surname;           // Cognome dell'utente
-    public String number;            // Numero di cellulare
-    public String email;             // Email dell'utente
-    public String password;          // Password d'accesso
-    public String profilePicture;    // Immagine del profilo
-    public List<Integer> insertions; // Inserzioni dell'utente
+    public String username;            // Identificativo dell'utente
+    public String name;                // Nome dell'utente
+    public String surname;             // Cognome dell'utente
+    public String number;              // Numero di cellulare
+    public String email;               // Email dell'utente
+    public String password;            // Password d'accesso
+    public String profilePicture;      // Immagine del profilo
+    public List<Insertion> insertions; // Inserzioni dell'utente
 
     /* Constructor */
-    public User(String username, String name, String surname, String password){
-        this.username = username;
-        this.name = name;
-        this.surname = surname;
-        this.password = password;
-
+    public User(){
+        username = null;
+        name = null;
+        surname = null;
         number = null;
         email = null;
-        profilePicture = null;
-        insertions = new ArrayList<>();
+        password = null;
+        insertions = null;
     }
 
     /* Methods */
     public Uri getProfilePicture() {
         return profilePicture == null ? null : Uri.parse(profilePicture);
     }
-    public void setProfilePicture(Uri immagine) {
-        this.profilePicture = immagine == null ? null : immagine.toString();
+    public void setProfilePicture(Uri picture) {
+        this.profilePicture = picture == null ? null : picture.toString();
     }
     public boolean equals(User user) {
         return username.equals(user.username);

@@ -36,16 +36,10 @@ public class RegistrazioneActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Controllo input
+                // TODO: Controllo input
 
-                // Crea l'oggetto utente
-                User user = new User(
-                        username.getText().toString(),
-                        name.getText().toString(),
-                        surname.getText().toString(),
-                        password1.getText().toString()
-                );
-                Shared.userList.add(user);    // Aggiunge l'utente alla lista
+                // Crea e salva l'oggetto utente
+                saveUser();
                 Shared.saveApplicationData(); // Salva i dati dell'applicazione
 
                 // Cambia activity
@@ -54,6 +48,14 @@ public class RegistrazioneActivity extends AppCompatActivity {
         });
     }
 
+    private void saveUser(){
+        User user = new User();
+        user.username = username.getText().toString();
+        user.name = name.getText().toString();
+        user.surname = surname.getText().toString();
+        user.password = password1.getText().toString();
+        Shared.userList.add(user); // Aggiunge l'utente alla lista
+    }
     private void goToLogin(){
         startActivity(new Intent(this, LoginActivity.class));
     }

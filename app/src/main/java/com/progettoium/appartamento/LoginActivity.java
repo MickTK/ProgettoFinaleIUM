@@ -15,7 +15,7 @@ import com.progettoium.appartamento.shared.Shared;
 
 public class LoginActivity extends AppCompatActivity {
 
-    static boolean startUp = true;
+    static boolean startUp = true; // Serve per caricare i dati dell'applicazione solo all'avvio
 
     EditText username, passw;
     Button loginButton;
