@@ -59,13 +59,13 @@ public class Shared {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userList", new Gson().toJson(userList));
         editor.apply();
-        Log.println(Log.DEBUG,"debug", "Saved data.");
+        debugLog("Saved data.");
     }
     // Carica la lista di utenti e i loro attributi
     public static void loadApplicationData(){
         userList = new Gson().fromJson(preferences.getString("userList", null), new TypeToken<UserList>(){}.getType());
         if (userList == null) userList = new UserList();
-        Log.println(Log.DEBUG,"debug", "Loaded data.");
+        debugLog("Loaded data.");
     }
     // Cancella tutti i dati salvati dell'applicazione
     public static void clearApplicationData(){
@@ -73,6 +73,11 @@ public class Shared {
         editor.clear();
         editor.apply();
         userList = new UserList();
-        Log.println(Log.DEBUG,"debug", "Cleared data.");
+        debugLog("Cleared data.");
+    }
+
+    // Stampa su terminale
+    public static void debugLog(String text){
+        Log.println(Log.DEBUG,"debug", text);
     }
 }

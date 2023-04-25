@@ -11,9 +11,9 @@ public class UserList extends ArrayList<User> {
     }
 
     // Imposta l'utente corrente
-    public void setCurrent(String username, String password){
+    public void setCurrent(String username){
         for (User user : this){
-            if(user.username.equals(username) && user.password.equals(password)){
+            if(user.username.equals(username)){
                 current = user;
                 return;
             }
@@ -30,6 +30,16 @@ public class UserList extends ArrayList<User> {
     public boolean exists(String username){
         for (User user : this){
             if(user.username.equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Controlla l'esistenza di un dato utente, avente data password
+    public boolean exists(String username, String password){
+        for (User user : this){
+            if(user.username.equals(username) && user.password.equals(password)){
                 return true;
             }
         }

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Dati dell'applicazione
         Shared.setSharedPreferences(getApplicationContext());
-        if (startUp) Shared.loadApplicationData();
+        if (startUp) Shared.loadApplicationData(); // Carica i dati solo all'avvio
         // Shared.clearApplicationData();
         // Shared.saveApplicationData();
         startUp = false;
@@ -39,11 +41,43 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         signIn = findViewById(R.id.signIn);
 
-        // Listener
+        // Eventi
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                username.setError(null);
+            }
+        });
+        passw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                passw.setError(null);
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                logIn();
             }
         });
         signIn.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +88,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void logIn(){
+        // Il nome utente e la password sono corretti
+        if (Shared.userList.exists(username.getText().toString(), passw.getText().toString())){
+            Shared.userList.setCurrent(username.getText().toString());
+            startActivity(new Intent(this, HomeActivity.class));
+        }
+        // Il nome utente è corretto ma non la password
+        else if (Shared.userList.exists(username.getText().toString())){
+            passw.setText("");
+            passw.setError("La password inserita non è corretta.");
+        }
+        // Il nome utente non è corretto
+        else {
+            username.setError("Il nome utente inserito non è corretto.");
+            passw.setText("");
+        }
+    }
     private void signIn(){
         startActivity(new Intent(this, RegistrazioneActivity.class));
     }
