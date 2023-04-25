@@ -15,6 +15,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!-- Per il logo-->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@color/celeste"
+                android:src="@drawable/logo"
+                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

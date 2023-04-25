@@ -14,6 +14,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+                <!-- Per il logo-->
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:background="@color/celeste"
+                    android:src="@drawable/logo"
+                    />
 
                 <Space
                     android:layout_width="10dp"
