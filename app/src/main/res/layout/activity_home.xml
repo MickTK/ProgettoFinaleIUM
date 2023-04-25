@@ -33,6 +33,81 @@
                     android:layout_height="100dp" />
 
                 <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/annunciButton"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/celeste"
+                    android:textColor="@color/black"
+                    android:text="Visualizza annunci"
+                    />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/prefeButton"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/celeste"
+                    android:textColor="@color/black"
+                    android:text="Preferiti"
+                    />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/insertButton"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/celeste"
+                    android:textColor="@color/black"
+                    android:text="Inserisci nuovo annuncio"
+                    />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/ownButton"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/celeste"
+                    android:textColor="@color/black"
+                    android:text="I miei annunci"
+                    />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/profileButton"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/celeste"
+                    android:textColor="@color/black"
+                    android:text="I miei dati"
+                    />
+
+                <Space
+                    android:layout_width="200dp"
+                    android:layout_height="200dp" />
+
+                <Button
                     android:layout_width="140dp"
                     android:layout_height="54dp"
                     android:layout_gravity="center"
