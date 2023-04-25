@@ -48,7 +48,8 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                app:drawableStartCompat="@drawable/ic_baseline_person_24"/>
 
             <Space
                 android:layout_width="wrap_content"
@@ -68,7 +69,8 @@
                 android:inputType="textPassword"
                 android:text=""
                 android:drawablePadding="10dp"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24" />
 
             <Space
                 android:layout_width="wrap_content"
