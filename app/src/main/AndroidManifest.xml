@@ -14,29 +14,38 @@
         android:theme="@style/Theme.ProgettoIUM"
         tools:targetApi="31">
         <activity
+            android:name=".Profile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".LoginActivity"
-            android:label="Accedi"
-            android:exported="true">
+            android:exported="true"
+            android:label="Accedi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".RegistrazioneActivity"
-            android:label="Registrati"
-            android:exported="false">
+            android:exported="false"
+            android:label="Registrati">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="Home"
-            android:exported="false">
+            android:exported="false"
+            android:label="Home">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
     </application>
+
 </manifest>
