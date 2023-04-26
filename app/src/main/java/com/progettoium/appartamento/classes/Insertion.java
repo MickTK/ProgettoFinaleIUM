@@ -39,4 +39,7 @@ public class Insertion implements Serializable {
                 city.equals(insertion.city) &&
                 address.equals(insertion.address);
     }
+    public boolean equals(String owner, String city, String address){
+        return this.owner.equals(owner) && this.city.equals(city) && this.address.equals(address);
+    }
 }

@@ -19,15 +19,15 @@ import java.util.List;
 
 public class Shared {
     private static SharedPreferences preferences;
-    public static UserList userList; // Lista di tutti gli utenti registrati nell'applicazione
+    public static UserList userList;                 // Lista degli utenti registrati nell'applicazione
+    public static Insertion currentInsertion = null; // Inserzione corrente
 
     /** Manipolazione delle inserzioni */
     // Ottiene tutte le inserzioni dell'applicazione
     public static List<Insertion> getInsertions(){
         List<Insertion> insertions = new ArrayList<>();
         for(User user : userList)
-            for(Insertion insertion : user.insertions)
-                insertions.add(insertion);
+            insertions.addAll(user.insertions);
         return insertions;
     }
     // Ottiene tutte le inserzioni di un dato utente
@@ -35,8 +35,7 @@ public class Shared {
         List<Insertion> insertions = new ArrayList<>();
         for(User user_ : userList)
             if (user.username.equals(user_.username))
-                for(Insertion insertion : user.insertions)
-                    insertions.add(insertion);
+                insertions.addAll(user.insertions);
         return insertions;
     }
     // Ottiene tutte le inserzioni dell'applicazione, eccetto quelle del dato utente
@@ -44,9 +43,16 @@ public class Shared {
         List<Insertion> insertions = new ArrayList<>();
         for(User user_ : userList)
             if (!user.username.equals(user_.username))
-                for(Insertion insertion : user.insertions)
-                    insertions.add(insertion);
+                insertions.addAll(user.insertions);
         return insertions;
+    }
+
+    public static Insertion getInsertion(String owner, String city, String address){
+        for(User user : userList)
+            for(Insertion insertion : user.insertions)
+                if (insertion.equals(owner,city,address))
+                    return insertion;
+        return null;
     }
 
     /** Dati dell'applicazione */

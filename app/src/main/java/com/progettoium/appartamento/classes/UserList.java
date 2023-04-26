@@ -11,6 +11,9 @@ public class UserList extends ArrayList<User> {
     }
 
     // Imposta l'utente corrente
+    public void setCurrent(User user){
+        current = user;
+    }
     public void setCurrent(String username){
         for (User user : this){
             if(user.username.equals(username)){

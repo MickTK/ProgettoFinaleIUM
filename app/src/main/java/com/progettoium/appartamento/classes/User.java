@@ -2,13 +2,16 @@ package com.progettoium.appartamento.classes;
 
 import android.net.Uri;
 
+import com.progettoium.appartamento.shared.Shared;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class User implements Serializable {
 
-    /* Attributes */
+    /** Attributi */
     public String username;            // Identificativo dell'utente
     public String name;                // Nome dell'utente
     public String surname;             // Cognome dell'utente
@@ -17,8 +20,9 @@ public class User implements Serializable {
     public String password;            // Password d'accesso
     public String profilePicture;      // Immagine del profilo
     public List<Insertion> insertions; // Inserzioni dell'utente
+    public List<List<String>> favourites;
 
-    /* Constructor */
+    /** Costruttore */
     public User(){
         username = null;
         name = null;
@@ -26,16 +30,76 @@ public class User implements Serializable {
         number = null;
         email = null;
         password = null;
-        insertions = null;
+        insertions = new ArrayList<>();
+        favourites = new ArrayList<>();
     }
 
-    /* Methods */
+    /** Metodi */
+    // Ottiene l'immagine del profilo sottoforma di Uri
     public Uri getProfilePicture() {
         return profilePicture == null ? null : Uri.parse(profilePicture);
     }
+    // Imposta l'immagine del profilo tramite Uri
     public void setProfilePicture(Uri picture) {
         this.profilePicture = picture == null ? null : picture.toString();
     }
+
+    /* Preferiti */
+    // Aggiunge un'inserzione ai preferiti
+    public void addFavourite(Insertion insertion){
+        List<String> i = Arrays.asList(insertion.owner,insertion.city,insertion.address);
+        favourites.add(i);
+    }
+    // Ottiene tutte le inserzioni preferite
+    public List<Insertion> getFavourites(){
+        List<Insertion> insertions = new ArrayList<>();
+        List<String> f;
+        Insertion insertion;
+
+        // Recupera tutte le inserzioni preferite
+        for (int i = favourites.size()-1; i >= 0; i--) {
+            f = favourites.get(i);
+            insertion = Shared.getInsertion(f.get(0),f.get(1),f.get(2));
+            // Se l'inserzione esiste
+            if (insertion != null){
+                // Se l'inserzione è pubblica
+                if (insertion.status)
+                    insertions.add(insertion);
+            }
+            // Se l'inserzione non esiste
+            else {
+                favourites.remove(i);
+            }
+        }
+        return insertions;
+    }
+    // Rimuove un'inserzione dai preferiti
+    public void removeFavourite(Insertion insertion){
+        List<String> f;
+        for (int i = 0; i < favourites.size()-1; i++){
+            f = favourites.get(i);
+            if (f.get(0).equals(insertion.owner) &&
+                f.get(1).equals(insertion.city) &&
+                f.get(2).equals(insertion.address)){
+                favourites.remove(i);
+                break;
+            }
+        }
+    }
+    // Controlla se l'inserzione è tra i preferiti
+    public boolean isFavourite(Insertion insertion){
+        List<String> f;
+        for (int i = 0; i < favourites.size()-1; i++){
+            f = favourites.get(i);
+            if (f.get(0).equals(insertion.owner) &&
+                    f.get(1).equals(insertion.city) &&
+                    f.get(2).equals(insertion.address)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean equals(User user) {
         return username.equals(user.username);
     }
