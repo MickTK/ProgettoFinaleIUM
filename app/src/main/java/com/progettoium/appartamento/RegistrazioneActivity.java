@@ -262,13 +262,26 @@ public class RegistrazioneActivity extends AppCompatActivity {
         }
         // Carattere speciale
         else {
-            for (int i = 0; i < specialCharacters.length(); i++){
+            boolean hasSpecialCharacter = false;
+            for (int i = 0; i < specialCharacters.length(); i++) {
+                if (pass.indexOf(specialCharacters.charAt(i)) >= 0) {
+                    hasSpecialCharacter = true;
+                    break;
+                }
+            }
+            if (!hasSpecialCharacter) {
+                status = false;
+                password1.setError("La password deve contenere almeno un carattere speciale.");
+            }
+
+            // Vecchio codice, logica scorretta. Controlla che la password contenga TUTTI i caratteri speciali, non almeno uno.
+            /*for (int i = 0; i < specialCharacters.length(); i++){
                 if (pass.indexOf(specialCharacters.toCharArray()[i]) < 0){
                     status = false;
                     password1.setError("La password deve contenere almeno un carattere speciale.");
                     break;
                 }
-            }
+            }*/
         }
         // Controlla la conferma della password
         if (!password2.getText().toString().equals(pass)){
