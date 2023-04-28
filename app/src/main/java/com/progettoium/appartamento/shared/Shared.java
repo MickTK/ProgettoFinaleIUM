@@ -46,7 +46,7 @@ public class Shared {
                 insertions.addAll(user.insertions);
         return insertions;
     }
-
+    // Ottiene l'inserzione avente la chiave data
     public static Insertion getInsertion(String owner, String city, String address){
         for(User user : userList)
             for(Insertion insertion : user.insertions)

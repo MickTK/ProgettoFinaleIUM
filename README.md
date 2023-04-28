@@ -1,3 +1,4 @@
 # Progetto IUM
-## SDK
-API 30: Android 11.0 (R)
+
+- Sdk: API 33 (Android 12)
+- OSMdroid
