@@ -30,7 +30,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // Dati dell'applicazione
         Shared.setSharedPreferences(getApplicationContext());
-        if (startUp) Shared.loadApplicationData(); // Carica i dati solo all'avvio
+        if (startUp){
+            Shared.loadApplicationData(); // Carica i dati solo all'avvio
+            if (Shared.userList.size() == 0)
+                Shared.sampleApplicationData(); // Carica dei dati per i test
+        }
         // Shared.clearApplicationData();
         // Shared.saveApplicationData();
         startUp = false;
