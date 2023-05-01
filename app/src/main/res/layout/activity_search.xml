@@ -25,13 +25,13 @@
             android:text="Vai"/>
 
     </LinearLayout>
- <!--
+
     <org.osmdroid.views.MapView
         android:id="@+id/map"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-        -->
+
 <!-- Prova per visualizzare il segnaposto temporaneamente
     <ImageView
         android:layout_width="30dp"
