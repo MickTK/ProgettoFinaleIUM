@@ -76,7 +76,7 @@ public class SearchActivity extends AppCompatActivity{
             if (insertion.status){
                 Marker marker = insertion.toMarker(map); // Crea il marker
                 marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                // TODO: startMarker.setIcon(getResources().getDrawable(R.drawable.ic_launcher));
+                marker.setIcon(getResources().getDrawable(R.drawable.segnapposto));
                 marker.setTitle(insertion.address);
                 marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
                     @Override

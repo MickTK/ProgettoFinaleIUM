@@ -81,7 +81,7 @@ public class Shared {
         userList = new UserList();
         debugLog("Cleared data.");
     }
-    public static void sampleApplicationData(){
+    public static void sampleApplicationData(@NonNull Context context){
         User user;
         Insertion insertion;
 
@@ -107,6 +107,7 @@ public class Shared {
                 "quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos " +
                 "sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam " +
                 "recusandae alias error harum maxime adipisci amet laborum.";
+        insertion.calculatePosition(context);
         user.insertions.add(insertion);
 
         user = new User();
@@ -131,6 +132,7 @@ public class Shared {
                 "quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos " +
                 "sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam " +
                 "recusandae alias error harum maxime adipisci amet laborum.";
+        insertion.calculatePosition(context);
         user.insertions.add(insertion);
     }
 
