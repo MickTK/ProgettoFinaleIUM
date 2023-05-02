@@ -7,6 +7,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import com.progettoium.appartamento.classes.Insertion;
 import com.progettoium.appartamento.shared.Shared;
 
+import org.osmdroid.api.IGeoPoint;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -31,6 +33,8 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
+    private static IGeoPoint lastLocation = null;
+    private static Double zoom = null;
 
     EditText searchBar;
     Button searchButton;
@@ -38,7 +42,6 @@ public class SearchActivity extends AppCompatActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
 
         // Richiesta permessi
         requestPermissionsIfNecessary(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE});
@@ -46,6 +49,8 @@ public class SearchActivity extends AppCompatActivity{
         // Configurazioni di osmdroid
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
+
+        setContentView(R.layout.activity_search);
 
         // Attributi
         map = (MapView) findViewById(R.id.map);
@@ -55,21 +60,27 @@ public class SearchActivity extends AppCompatActivity{
 
         // Controller
         IMapController mapController = map.getController();
-        mapController.setZoom(10);
 
         // Imposta la posizione iniziale della mappa
-        String startingPosition = "72 Via Ospedale, Cagliari, ITA"; // Palazzo delle Scienze
-        try {
-            Geocoder geocoder = new Geocoder(getApplicationContext());
-            List<Address> addresses = geocoder.getFromLocationName(startingPosition, 1);
-            if (addresses.size() > 0) {
-                double lat = addresses.get(0).getLatitude();
-                double lon = addresses.get(0).getLongitude();
-                GeoPoint startPoint = new GeoPoint(lat, lon);
-                mapController.setCenter(startPoint);
+        if (lastLocation == null) {
+            String startingPosition = "72 Via Ospedale, Cagliari, ITA"; // Palazzo delle Scienze
+            try {
+                Geocoder geocoder = new Geocoder(getApplicationContext());
+                List<Address> addresses = geocoder.getFromLocationName(startingPosition, 1);
+                if (addresses.size() > 0) {
+                    double lat = addresses.get(0).getLatitude();
+                    double lon = addresses.get(0).getLongitude();
+                    GeoPoint startPoint = new GeoPoint(lat, lon);
+                    mapController.setCenter(startPoint);
+                    mapController.setZoom(15.);
+                }
             }
+            catch (Exception exception) {}
         }
-        catch (Exception exception){}
+        else{
+            mapController.setCenter(lastLocation);
+            mapController.setZoom(zoom);
+        }
 
         // Inizializza i Marker della mappa
         for (Insertion insertion : Shared.getInsertionsWithout(Shared.userList.getCurrent())){
@@ -82,7 +93,7 @@ public class SearchActivity extends AppCompatActivity{
                     @Override
                     public boolean onMarkerClick(Marker marker, MapView mapView) {
                         Shared.currentInsertion = insertion;
-                        // TODO: Cambia activity
+                        goToInsertionInfos();
                         return false;
                     }
                 });
@@ -91,22 +102,45 @@ public class SearchActivity extends AppCompatActivity{
         }
 
         // Eventi
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        searchBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                try {
-                    Geocoder geocoder = new Geocoder(getApplicationContext());
-                    List<Address> addresses = geocoder.getFromLocationName(searchBar.getText().toString(), 1);
-                    if (addresses.size() > 0) {
-                        double lat = addresses.get(0).getLatitude();
-                        double lon = addresses.get(0).getLongitude();
-                        GeoPoint geoPoint = new GeoPoint(lat, lon);
-                        mapController.setCenter(geoPoint);
-                    }
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    searchBar.requestFocus();
+                    return true;
                 }
-                catch (Exception exception){}
+                return false;
             }
         });
+        searchButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    try {
+                        Geocoder geocoder = new Geocoder(getApplicationContext());
+                        List<Address> addresses = geocoder.getFromLocationName(searchBar.getText().toString(), 1);
+                        if (addresses.size() > 0) {
+                            double lat = addresses.get(0).getLatitude();
+                            double lon = addresses.get(0).getLongitude();
+                            GeoPoint geoPoint = new GeoPoint(lat, lon);
+                            mapController.setCenter(geoPoint);
+                        }
+                    }
+                    catch (Exception exception){}
+                    return true;
+                }
+                return false;
+            }
+        });
+        map.clearFocus();
+        searchBar.requestFocus();
+    }
+
+    @Override
+    public void onBackPressed() {
+        lastLocation = null;
+        zoom = null;
+        super.onBackPressed();
     }
 
     @Override
@@ -151,5 +185,12 @@ public class SearchActivity extends AppCompatActivity{
                     permissionsToRequest.toArray(new String[0]),
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
+    }
+
+    private void goToInsertionInfos(){
+        // Salva l'ultima posizione della mappa
+        lastLocation = map.getMapCenter();
+        zoom = map.getZoomLevelDouble();
+        // TODO: Cambia activity
     }
 }

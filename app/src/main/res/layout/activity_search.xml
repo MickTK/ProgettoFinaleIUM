@@ -14,7 +14,7 @@
             android:layout_width="fill_parent"
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
-            android:text="Indirizzo"
+            android:hint="Indirizzo"
             android:gravity="center"/>
 
         <Button
@@ -22,14 +22,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
-            android:text="Vai"/>
+            android:text="Cerca"
+            android:focusable="true"
+            android:clickable="true"/>
 
     </LinearLayout>
 
     <org.osmdroid.views.MapView
         android:id="@+id/map"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
 
 <!-- Prova per visualizzare il segnaposto temporaneamente
