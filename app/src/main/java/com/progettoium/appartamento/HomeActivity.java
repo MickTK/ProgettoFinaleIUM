@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         // Switch activity
         viewAds.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(HomeActivity.this, Profile.class));
+                startActivity(new Intent(HomeActivity.this, SearchActivity.class));
             }
         });
         favorites.setOnClickListener(new View.OnClickListener(){
