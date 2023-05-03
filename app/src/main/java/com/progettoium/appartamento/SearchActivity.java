@@ -35,6 +35,7 @@ public class SearchActivity extends AppCompatActivity{
     private MapView map = null;
     private static IGeoPoint lastLocation = null;
     private static Double zoom = null;
+    private Marker currentMarker = null;
 
     EditText searchBar;
     Button searchButton;
@@ -124,6 +125,16 @@ public class SearchActivity extends AppCompatActivity{
                             double lon = addresses.get(0).getLongitude();
                             GeoPoint geoPoint = new GeoPoint(lat, lon);
                             mapController.setCenter(geoPoint);
+                            if(currentMarker == null){
+                                currentMarker = new Marker(map);
+                                currentMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+                                currentMarker.setIcon(getResources().getDrawable(R.drawable.selectplace));
+                                currentMarker.setPosition(geoPoint);
+                                map.getOverlays().add(currentMarker);
+                            }
+                            else{
+                                currentMarker.setPosition(geoPoint);
+                            }
                         }
                     }
                     catch (Exception exception){}
