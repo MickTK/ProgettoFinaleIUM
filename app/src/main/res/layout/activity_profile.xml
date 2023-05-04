@@ -73,8 +73,7 @@
                 android:textColor="@color/black"
                 android:drawablePadding="10dp"
                 android:text=""
-                app:drawableStartCompat="@drawable/ic_baseline_person_24"
-                />
+                app:drawableStartCompat="@drawable/ic_baseline_person_24" />
 
 
             <TextView
@@ -209,7 +208,6 @@
                 android:text=""
                 app:drawableStartCompat="@drawable/ic_baseline_email_24"/>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -222,17 +220,6 @@
                 android:clickable="true"
                 android:text="Modifica dati" />
 
-            <Button
-                android:layout_width="140dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center"
-                android:id="@+id/logoutButton"
-                android:textAllCaps="false"
-                android:backgroundTint="@color/celeste"
-                android:textColor="@color/black"
-                android:text="Logout"
-                />
-            <!-- Colore dei bottoni provvisorio -->
 
 
         </LinearLayout>

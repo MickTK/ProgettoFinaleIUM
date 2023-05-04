@@ -38,19 +38,98 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
 
-            <!-- Da controllare -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Proprietario:"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
 
-            <ImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_gravity="center"
-                android:id="@+id/resultImage"
-                android:layout_marginTop="26dp"/>
-
+            <EditText
+                android:id="@+id/theowner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci nome del proprietario"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="40dp" />
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Indirizzo:"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/addres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci nome del proprietario"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp" />
+
+            <TextView android:id="@+id/pictureText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Immagine:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <ImageView android:id="@+id/pictureImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:visibility="gone"
+                android:maxHeight="300px"
+                android:maxWidth="300px"
+                android:minHeight="300px"
+                android:minWidth="300px"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"/>
+
+            <Button
+                android:id="@+id/fpick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Seleziona foto"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -73,6 +152,8 @@
                 android:backgroundTint="@color/celeste"
                 android:textColor="@color/black"
                 android:text="Indietro" />
+
+
 
             <!-- Colore dei bottoni provvisorio -->
 
