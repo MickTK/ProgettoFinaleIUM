@@ -33,6 +33,6 @@ public class Profile extends AppCompatActivity {
         resultNum = findViewById(R.id.resultNum);
         resultEmail = findViewById(R.id.resultEmail);
         editInfo = findViewById(R.id.changePwd);
-        logout = findViewById(R.id.logoutButton);
+        //logout = findViewById(R.id.logoutButton);
     }
 }
