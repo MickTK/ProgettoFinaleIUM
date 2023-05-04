@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
         //attributes
         viewAds = findViewById(R.id.annunciButton);
         favorites = findViewById(R.id.prefeButton);
-        insertAd = findViewById(R.id.insertButton);
+        //insertAd = findViewById(R.id.insertButton);
         myAds = findViewById(R.id.ownButton);
         myInfo = findViewById(R.id.profileButton);
         logout = findViewById(R.id.logoutButton);
@@ -37,11 +37,13 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, Profile.class));
             }
         });
-        insertAd.setOnClickListener(new View.OnClickListener(){
+       /* insertAd.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(HomeActivity.this, Profile.class));
             }
         });
+
+        */
         myAds.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(HomeActivity.this, Profile.class));

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-186dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@color/celeste"
+                android:src="@drawable/logo"
+                />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Modifica i tuoi dati:"
+
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp" />
+
+            <TextView
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="Si sono verificati ..."
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:visibility="gone" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="10dp"
+                android:text="Username:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci il tuo nome utente"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_person_24"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="10dp"
+                android:text="Nome:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci il tuo nome"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_face_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="10dp"
+                android:text="Cognome:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci il tuo cognome"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_face_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="10dp"
+                android:text="Numero di telefono:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:inputType="number"
+                android:hint="Inserisci il tuo numero di telefono"
+                app:drawableStartCompat="@drawable/ic_baseline_phone_24"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="10dp"
+                android:text="Email:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci la tua email"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_email_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Password:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newPassw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+
+                android:drawablePadding="10dp"
+                android:hint="Inserisci la password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Conferma la password:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/newNPassw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+
+                android:drawablePadding="10dp"
+                android:hint="Conferma password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView android:id="@+id/newpictureText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Immagine:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <ImageView android:id="@+id/newpictureImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:maxHeight="300px"
+                android:maxWidth="300px"
+                android:minHeight="300px"
+                android:minWidth="300px"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"/>
+
+            <!-- Bisogna cambiare id??? -->
+
+            <Button
+                android:id="@+id/fpick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Seleziona foto"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+            <Button
+                android:id="@+id/fpickRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Rimuovi foto"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="24dp" />
+
+            <Button
+                android:id="@+id/changeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Modifica"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
