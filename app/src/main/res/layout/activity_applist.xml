@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Qui verrà visualizzata la lista degli appartamenti presenti nell'applicazione -->
+    <!-- Qui verrà visualizzata l'annuncio selezionato dalla mappa -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="Lista Annunci"
+            android:text="Annuncio"
             android:textColor="@color/black"
             android:textSize="30dp" />
 
@@ -30,7 +29,7 @@
             android:layout_height="20dp" />
 
         <ListView
-            android:id="@+id/simpleListView"
+            android:id="@+id/adsListView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:divider="@color/material_blue_grey_800"

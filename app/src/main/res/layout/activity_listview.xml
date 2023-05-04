@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Visualizzazione finale ed effettiva degli annunci -->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
+
+    <!-- Immagine annuncio -->
 
     <ImageView
         android:id="@+id/icon"
@@ -13,6 +16,8 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true" />
+
+    <!-- Descrizione Annuncio -->
 
     <TextView
         android:id="@+id/textView"
