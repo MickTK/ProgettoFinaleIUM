@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Visualizzazione finale ed effettiva degli annunci -->
+<!-- Anteprima annuncio (mostrato nella lista degli annunci) -->
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,7 +9,6 @@
     android:padding="16dp">
 
     <!-- Immagine annuncio -->
-
     <ImageView
         android:id="@+id/icon"
         android:layout_width="50dp"
@@ -18,7 +17,6 @@
         android:layout_centerVertical="true" />
 
     <!-- Descrizione Annuncio -->
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
