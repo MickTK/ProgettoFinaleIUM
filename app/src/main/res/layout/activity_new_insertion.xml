@@ -94,6 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="12dp" />
 
+            <!-- Informazioni da aggiungere -->
+
             <TextView android:id="@+id/pictureText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,8 +154,6 @@
                 android:backgroundTint="@color/celeste"
                 android:textColor="@color/black"
                 android:text="Indietro" />
-
-
 
             <!-- Colore dei bottoni provvisorio -->
 
