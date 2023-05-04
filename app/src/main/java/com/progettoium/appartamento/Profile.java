@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.progettoium.appartamento.classes.User;
 import com.progettoium.appartamento.classes.UserList.*;
+import com.progettoium.appartamento.shared.Shared;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +15,16 @@ import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
 
+    User user = Shared.userList.getCurrent();
+
+    TextView resultUsername, resultName, resultSurname, resultNum, resultEmail, editInfo;
+    ImageView image;
+    Button logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-        //User user = new User();
-        //user.getCurrent();
-
-        TextView resultUsername, resultName, resultSurname, resultNum, resultEmail, editInfo;
-        ImageView image;
-        Button logout;
 
         image = findViewById(R.id.resultImage);
         resultUsername = findViewById(R.id.resultUsername);
