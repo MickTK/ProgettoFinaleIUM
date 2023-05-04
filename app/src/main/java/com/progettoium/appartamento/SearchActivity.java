@@ -130,6 +130,12 @@ public class SearchActivity extends AppCompatActivity{
                                 currentMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
                                 currentMarker.setIcon(getResources().getDrawable(R.drawable.selectplace));
                                 currentMarker.setPosition(geoPoint);
+                                currentMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+                                    @Override
+                                    public boolean onMarkerClick(Marker marker, MapView mapView) {
+                                        return false;
+                                    }
+                                });
                                 map.getOverlays().add(currentMarker);
                             }
                             else{

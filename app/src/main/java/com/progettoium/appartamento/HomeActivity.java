@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         */
         myAds.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(HomeActivity.this, Profile.class));
+                startActivity(new Intent(HomeActivity.this, MyInsertionsActivity.class));
             }
         });
         myInfo.setOnClickListener(new View.OnClickListener(){

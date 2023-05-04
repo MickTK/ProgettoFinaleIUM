@@ -29,12 +29,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
 
-            <ListView
-                android:id="@+id/favListView"
+            <!-- Lista degli annunci -->
+            <LinearLayout
+                android:id="@+id/insertioList"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:divider="@color/material_blue_grey_800"
-                android:dividerHeight="1dp" />
+                android:orientation="vertical">
+            </LinearLayout>
 
             <Space
                 android:layout_width="wrap_content"
