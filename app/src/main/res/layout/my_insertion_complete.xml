@@ -8,6 +8,9 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
+    <!-- Da cambiare in relazione alla pagina di inserimento dei dati dell'annuncio-->
+
+
     <!-- Immagine annuncio -->
     <ImageView
         android:id="@+id/icon"
