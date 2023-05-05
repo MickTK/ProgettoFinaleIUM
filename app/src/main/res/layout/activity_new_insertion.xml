@@ -38,33 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Proprietario:"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                />
-
-            <EditText
-                android:id="@+id/theowner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@color/white"
-                android:drawablePadding="10dp"
-                android:hint="Inserisci nome del proprietario"
-                android:inputType="textPassword"
-                android:padding="10dp"
-                android:text=""
-                android:textColorHint="@color/black"
-                android:textSize="15dp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,14 +50,40 @@
                 />
 
             <EditText
-                android:id="@+id/addres"
+                android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
-                android:hint="Inserisci nome del proprietario"
-                android:inputType="textPassword"
+                android:hint="Inserisci indirizzo."
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Città:"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci la città."
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
@@ -133,6 +132,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="14dp" />
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrizione:"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/addres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:maxLines="20"
+                android:hint="Inserisci una descrizione. Esempio: numero di stanze, mobili."
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,6 +172,10 @@
                 android:id="@+id/changeAll"
                 android:clickable="true"
                 android:text="Modifica dati" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="4dp" />
 
             <Button
                 android:layout_width="wrap_content"
