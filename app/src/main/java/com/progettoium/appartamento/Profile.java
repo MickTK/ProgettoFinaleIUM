@@ -34,5 +34,6 @@ public class Profile extends AppCompatActivity {
         resultEmail = findViewById(R.id.resultEmail);
         editInfo = findViewById(R.id.changePwd);
         //logout = findViewById(R.id.logoutButton);
+
     }
 }
