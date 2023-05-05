@@ -19,7 +19,6 @@ public class Profile extends AppCompatActivity {
 
     TextView resultUsername, resultName, resultSurname, resultNum, resultEmail, editInfo;
     ImageView image;
-    Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +26,22 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         image = findViewById(R.id.resultImage);
+        image.setImageURI(user.getProfilePicture());
         resultUsername = findViewById(R.id.resultUsername);
+        resultUsername.setText(user.username);
         resultName = findViewById(R.id.resultName);
+        resultName.setText(user.name);
         resultSurname = findViewById(R.id.resultSurname);
+        resultSurname.setText(user.surname);
         resultNum = findViewById(R.id.resultNum);
+        resultNum.setText(user.number);
         resultEmail = findViewById(R.id.resultEmail);
-        editInfo = findViewById(R.id.changePwd);
-        //logout = findViewById(R.id.logoutButton);
+        resultEmail.setText(user.email);
 
+        /*editInfo.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(Profile.this, ActivityChange.class));
+            }
+        });*/
     }
 }
