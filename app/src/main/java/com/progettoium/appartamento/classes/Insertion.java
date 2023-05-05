@@ -82,7 +82,6 @@ public class Insertion implements Serializable {
         marker.setPosition(geoPoint);
         return marker;
     }
-
     public boolean equals(@NonNull Insertion insertion){
         return owner.equals(insertion.owner) &&
                 city.equals(insertion.city) &&
