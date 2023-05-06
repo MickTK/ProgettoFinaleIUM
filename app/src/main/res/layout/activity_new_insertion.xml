@@ -114,17 +114,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="14dp" />
 
-            <ImageView android:id="@+id/pictureImage"
+            <LinearLayout
+                android:id="@+id/pictures"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:visibility="gone"
-                android:maxHeight="300px"
-                android:maxWidth="300px"
-                android:minHeight="300px"
-                android:minWidth="300px"
-                android:scaleType="centerInside"
-                android:adjustViewBounds="true"/>
+                android:orientation="horizontal">
+            </LinearLayout>
 
             <Button
                 android:id="@+id/fpick"
