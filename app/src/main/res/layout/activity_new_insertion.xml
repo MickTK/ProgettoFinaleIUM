@@ -23,6 +23,7 @@
                 android:src="@drawable/logo"
                 />
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,34 +38,6 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Indirizzo:"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                />
-
-            <EditText
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@color/white"
-                android:drawablePadding="10dp"
-                android:hint="Inserisci indirizzo."
-                android:padding="10dp"
-                android:text=""
-                android:textColorHint="@color/black"
-                android:textSize="15dp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,6 +62,40 @@
                 android:textColorHint="@color/black"
                 android:textSize="15dp" />
 
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Via e numero civico:"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci la via e il numero civico."
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="12dp" />
@@ -99,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Immagine:"
+                android:text="Foto:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -124,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Seleziona foto"
+                android:text="Aggiungi foto"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -153,7 +160,7 @@
                 />
 
             <EditText
-                android:id="@+id/addres"
+                android:id="@+id/descrizione"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -170,6 +177,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
 
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/adsButton"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/celeste"
+                android:textColor="@color/black"
+                android:text="Crea annuncio" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="4dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -178,23 +200,9 @@
                 android:textSize="20dp"
                 android:textStyle="italic"
                 android:linksClickable="true"
-                android:id="@+id/changeAll"
+                android:id="@+id/back"
                 android:clickable="true"
-                android:text="Modifica dati" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="4dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/logoutButton"
-                android:textAllCaps="false"
-                android:backgroundTint="@color/celeste"
-                android:textColor="@color/black"
-                android:text="Indietro" />
+                android:text="Annulla" />
 
             <!-- Colore dei bottoni provvisorio -->
 
