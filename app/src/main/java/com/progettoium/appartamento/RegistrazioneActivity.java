@@ -3,6 +3,7 @@ package com.progettoium.appartamento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 import com.progettoium.appartamento.classes.User;
 import com.progettoium.appartamento.shared.Shared;
 
-import org.w3c.dom.Text;
+import java.io.IOException;
 
 public class RegistrazioneActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
     Button selectPicture, removePicture, signIn;
     TextView pictureText;
     ImageView pictureImage;
-    Uri pictureUri;
+    Bitmap pictureBmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         selectPicture = findViewById(R.id.fpick);
         removePicture = findViewById(R.id.fpickRemove);
         pictureText = findViewById(R.id.pictureText);
-        pictureUri = null;
+        pictureBmp = null;
         pictureImage = findViewById(R.id.pictureImage);
         signIn = findViewById(R.id.signInButton);
 
@@ -174,7 +175,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         removePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pictureUri = null;
+                pictureBmp = null;
                 pictureImage.setVisibility(View.GONE);
             }
         });
@@ -195,12 +196,18 @@ public class RegistrazioneActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         int PICK_IMAGE = 100;
+        Uri uri = null;
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
-            pictureUri = data.getData();
-            pictureImage.setImageURI(pictureUri);
-            pictureImage.setVisibility(View.VISIBLE);
+            try {
+                uri = data.getData();
+                pictureBmp = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                pictureImage.setImageBitmap(pictureBmp);
+                pictureImage.setVisibility(View.VISIBLE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        else if (pictureUri == null)
+        else if (pictureBmp == null)
             pictureText.setError("Questo campo non può essere vuoto.");
     }
     // Controlla se tutti i dati inseriti nel form sono corretti
@@ -273,15 +280,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
                 status = false;
                 password1.setError("La password deve contenere almeno un carattere speciale.");
             }
-
-            // Vecchio codice, logica scorretta. Controlla che la password contenga TUTTI i caratteri speciali, non almeno uno.
-            /*for (int i = 0; i < specialCharacters.length(); i++){
-                if (pass.indexOf(specialCharacters.toCharArray()[i]) < 0){
-                    status = false;
-                    password1.setError("La password deve contenere almeno un carattere speciale.");
-                    break;
-                }
-            }*/
         }
         // Controlla la conferma della password
         if (!password2.getText().toString().equals(pass)){
@@ -290,7 +288,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
             password2.setError("La password non coindice.");
         }
         // Controlla l'immagine del profilo
-        if (pictureUri == null){
+        if (pictureBmp == null){
             status = false;
             pictureText.setError("Questo campo non può essere vuoto.");
         }
@@ -306,7 +304,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         user.number = number.getText().toString();
         user.email = email.getText().toString();
         user.password = password1.getText().toString();
-        user.setProfilePicture(pictureUri);
+        user.setProfilePicture(pictureBmp);
         Shared.userList.add(user);
     }
     // Cambia activity

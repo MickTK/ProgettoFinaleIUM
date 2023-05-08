@@ -1,9 +1,12 @@
 package com.progettoium.appartamento.classes;
 
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 
 import com.progettoium.appartamento.shared.Shared;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,13 +39,25 @@ public class User implements Serializable {
 
     /** Metodi */
     // Ottiene l'immagine del profilo sottoforma di Uri
-    public Uri getProfilePicture() {
-        return profilePicture == null ? null : Uri.parse(profilePicture);
+    public Bitmap getProfilePicture() {
+        try {
+            byte [] encodeByte= Base64.decode(profilePicture,Base64.DEFAULT);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch(Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
     // Imposta l'immagine del profilo tramite Uri
-    public void setProfilePicture(Uri picture) {
-        this.profilePicture = picture == null ? null : picture.toString();
+    public void setProfilePicture(Bitmap picture) {
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        picture.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String temp = Base64.encodeToString(b, Base64.DEFAULT);
+        profilePicture = temp;
     }
+
 
     /* Preferiti */
     // Aggiunge un'inserzione ai preferiti

@@ -41,9 +41,9 @@ public class Shared {
     // Ottiene tutte le inserzioni dell'applicazione, eccetto quelle del dato utente
     public static List<Insertion> getInsertionsWithout(User user){
         List<Insertion> insertions = new ArrayList<>();
-        for(User user_ : userList)
-            if (!user.username.equals(user_.username))
-                insertions.addAll(user.insertions);
+        for(User otherUser : userList)
+            if (!user.username.equals(otherUser.username))
+                insertions.addAll(otherUser.insertions);
         return insertions;
     }
     // Ottiene l'inserzione avente la chiave data

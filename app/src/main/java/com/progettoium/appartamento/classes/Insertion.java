@@ -1,9 +1,11 @@
 package com.progettoium.appartamento.classes;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
-import android.net.Uri;
+import android.util.Base64;
 
 import androidx.annotation.NonNull;
 
@@ -11,6 +13,7 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +48,23 @@ public class Insertion implements Serializable {
         status = true;
     }
 
-    /* Methods */
-    public Uri getPicture(int index) {
-        return pictures == null || pictures.size() < index ? null : Uri.parse(pictures.get(index));
+    /** Methods */
+    public Bitmap getPicture(int index){
+        try {
+            byte [] encodeByte= Base64.decode(pictures.get(index),Base64.DEFAULT);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch(Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
-    public void addPicture(Uri picture) {
-        if (picture != null) this.pictures.add(picture.toString());
+    public void addPicture(Bitmap bitmap) {
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String temp = Base64.encodeToString(b, Base64.DEFAULT);
+        pictures.add(temp);
     }
 
     // Calcola e imposta le coordinate geografiche dell'immobile

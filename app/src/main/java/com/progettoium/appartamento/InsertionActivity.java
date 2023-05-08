@@ -18,8 +18,11 @@ public class InsertionActivity extends AppCompatActivity {
     LinearLayout pictures;
     Button favourite;
 
-    User owner = null;
-    Insertion insertion = Shared.currentInsertion;
+    User currentUser = Shared.userList.getCurrent();
+    Insertion currentInsertion = Shared.currentInsertion;
+    User insertionOwner = Shared.userList.get(currentInsertion.owner);;
+
+    boolean isFavourite;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,26 +38,60 @@ public class InsertionActivity extends AppCompatActivity {
         pictures = findViewById(R.id.pictures);
         favourite = findViewById(R.id.favorites);
 
-        owner = Shared.userList.get(insertion.owner); // Recupera le informazioni del locatore
+        city.setText(currentInsertion.city);
+        address.setText(currentInsertion.address);
+        description.setText(currentInsertion.description);
+        name.setText(name.getText() + insertionOwner.name + " " + insertionOwner.surname);
+        number.setText(number.getText() + insertionOwner.number);
+        email.setText(email.getText() + insertionOwner.email);
 
-        city.setText(insertion.city);
-        address.setText(insertion.address);
-        description.setText(insertion.description);
-        name.setText(name.getText() + owner.name + " " + owner.surname);
-        number.setText(number.getText() + owner.number);
-        email.setText(email.getText() + owner.email);
-
-        // Pulsante dei preferiti
-        if (owner.username.equals(Shared.userList.getCurrent().username)){
+        /** Pulsante dei preferiti */
+        // Nasconde il pulsante se è il proprietario a visualizzare l'annuncio
+        if (insertionOwner.username.equals(currentUser.username)){
             favourite.setVisibility(View.INVISIBLE);
         }
+        // L'annuncio è tra i preferiti
+        if (insertionOwner.isFavourite(currentInsertion)){
+            isFavourite = true;
+            favourite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.stella_piena, 0, 0);
+        }
+        // L'annuncio non è tra i preferiti
+        else{
+            isFavourite = false;
+            favourite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.stella_vuota, 0, 0);
+        }
+        // Aggiunge e rimuove l'annuncio dai preferiti
+        favourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Se l'annuncio è tra i preferiti
+                if(isFavourite){
+                    isFavourite = false;
+                    currentUser.removeFavourite(currentInsertion);
+                    favourite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.stella_vuota, 0, 0);
+                }
+                // Se l'annuncio non è tra i preferiti
+                else{
+                    isFavourite = true;
+                    currentUser.addFavourite(currentInsertion);
+                    favourite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.stella_piena, 0, 0);
+                }
+            }
+        });
 
-        // Album fotografico
+        /** Album fotografico */
         ImageView picture;
-        for(int i = 0; i < insertion.pictures.size(); i++){
+        for(int i = 0; i < currentInsertion.pictures.size(); i++){
             picture = new ImageView(getApplicationContext());
-            picture.setImageURI(insertion.getPicture(i));
+            picture.setImageBitmap(currentInsertion.getPicture(i));
             pictures.addView(picture);
         }
+    }
+
+    // Torna all'activity precedente
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Shared.currentInsertion = null;
     }
 }
