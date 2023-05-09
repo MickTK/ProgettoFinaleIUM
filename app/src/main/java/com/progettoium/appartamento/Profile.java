@@ -37,11 +37,11 @@ public class Profile extends AppCompatActivity {
         resultNum.setText(user.number);
         resultEmail = findViewById(R.id.resultEmail);
         resultEmail.setText(user.email);
-
-        /*editInfo.setOnClickListener(new View.OnClickListener(){
+        editInfo = findViewById(R.id.changePwd);
+        editInfo.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(Profile.this, ActivityChange.class));
+                startActivity(new Intent(Profile.this, EditAccountActivity.class));
             }
-        });*/
+        });
     }
 }
