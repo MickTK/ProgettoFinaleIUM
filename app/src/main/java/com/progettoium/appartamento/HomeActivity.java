@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         favorites.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(HomeActivity.this, Profile.class));
+                startActivity(new Intent(HomeActivity.this, FavouritesActivity.class));
             }
         });
        /* insertAd.setOnClickListener(new View.OnClickListener(){

@@ -51,7 +51,7 @@ public class InsertionActivity extends AppCompatActivity {
             favourite.setVisibility(View.INVISIBLE);
         }
         // L'annuncio è tra i preferiti
-        if (insertionOwner.isFavourite(currentInsertion)){
+        if (currentUser.isFavourite(currentInsertion)){
             isFavourite = true;
             favourite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.stella_piena, 0, 0);
         }
@@ -86,12 +86,5 @@ public class InsertionActivity extends AppCompatActivity {
             picture.setImageBitmap(currentInsertion.getPicture(i));
             pictures.addView(picture);
         }
-    }
-
-    // Torna all'activity precedente
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Shared.currentInsertion = null;
     }
 }

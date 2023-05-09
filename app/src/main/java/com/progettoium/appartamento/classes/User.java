@@ -91,7 +91,7 @@ public class User implements Serializable {
     // Rimuove un'inserzione dai preferiti
     public void removeFavourite(Insertion insertion){
         List<String> f;
-        for (int i = 0; i < favourites.size()-1; i++){
+        for (int i = 0; i < favourites.size(); i++){
             f = favourites.get(i);
             if (f.get(0).equals(insertion.owner) &&
                 f.get(1).equals(insertion.city) &&
@@ -104,7 +104,7 @@ public class User implements Serializable {
     // Controlla se l'inserzione è tra i preferiti
     public boolean isFavourite(Insertion insertion){
         List<String> f;
-        for (int i = 0; i < favourites.size()-1; i++){
+        for (int i = 0; i < favourites.size(); i++){
             f = favourites.get(i);
             if (f.get(0).equals(insertion.owner) &&
                     f.get(1).equals(insertion.city) &&

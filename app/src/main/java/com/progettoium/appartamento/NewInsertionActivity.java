@@ -219,7 +219,7 @@ public class NewInsertionActivity extends AppCompatActivity {
 
     // Cancella la foto se cliccata in modalità di rimozione
     private void deletePictureOnClick(@NonNull View v){
-        Integer index = Integer.parseInt(v.getTag().toString().replace("pic_",""));
+        int index = Integer.parseInt(v.getTag().toString().replace("pic_",""));
         pictures.removeViewAt(index);
         tempInsertion.pictures.remove(index);
     }

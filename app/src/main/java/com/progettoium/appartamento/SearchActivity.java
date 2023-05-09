@@ -10,6 +10,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -141,8 +143,6 @@ public class SearchActivity extends AppCompatActivity{
                 return false;
             }
         });
-        map.clearFocus();
-        searchBar.requestFocus();
     }
 
     @Override
@@ -156,6 +156,8 @@ public class SearchActivity extends AppCompatActivity{
     public void onResume() {
         super.onResume();
         map.onResume();
+        Shared.currentInsertion = null;
+        Shared.saveApplicationData();
     }
 
     @Override
