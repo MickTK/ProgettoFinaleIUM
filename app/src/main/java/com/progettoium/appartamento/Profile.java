@@ -26,7 +26,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         image = findViewById(R.id.resultImage);
-        image.setImageURI(user.getProfilePicture());
+        image.setImageBitmap(user.getProfilePicture());
         resultUsername = findViewById(R.id.resultUsername);
         resultUsername.setText(user.username);
         resultName = findViewById(R.id.resultName);
