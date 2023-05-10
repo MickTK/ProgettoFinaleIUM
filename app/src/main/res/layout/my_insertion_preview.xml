@@ -13,11 +13,52 @@
         android:id="@+id/picture"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
         android:background="@color/black"/>
 
-    <!-- Descrizione Annuncio -->
+    <!-- Linear layout per i bottoni -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/picture"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/modifyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/celeste"
+            android:text="Modifica"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
 
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/celeste"
+            android:text="Elimina"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/archiviaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/celeste"
+            android:text="Archivia"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
 </RelativeLayout>
