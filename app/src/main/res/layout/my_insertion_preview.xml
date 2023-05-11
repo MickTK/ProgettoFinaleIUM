@@ -8,12 +8,43 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-    <!-- Immagine annuncio -->
+    <!-- TextView per la città -->
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Città:"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_below="@id/city"
+        android:text="Indirizzo:"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <!-- ImageView per l'immagine -->
     <ImageView
         android:id="@+id/picture"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@id/address"
         android:background="@color/black"/>
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
 
     <!-- Linear layout per i bottoni -->
     <LinearLayout
