@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -105,12 +106,16 @@ public class NewInsertionActivity extends AppCompatActivity {
             }
         });
 
-        // Se si sta creando un'inserzione
+        // Se si sta modificando un'inserzione
         if(!newInsertionMode){
+            city.setText(currentInsertion.city);
+            address.setText(currentInsertion.address);
+            description.setText(currentInsertion.description);
             // Aggiunge le foto dell'annuncio
             for(int i = 0; i < currentInsertion.pictures.size(); i++){
                 pictures.addView(newPictureView(currentInsertion.getPicture(i), "pic_" + i));
             }
+            createInsertion.setText("Modifica annuncio");
         }
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,7 +209,7 @@ public class NewInsertionActivity extends AppCompatActivity {
     private ImageView newPictureView(Bitmap bitmap, String id){
         ImageView picture = new ImageView(getApplicationContext());
         picture.setImageBitmap(bitmap);
-        setElementId(picture, id);
+        picture.setTag(id);
         picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -228,12 +233,8 @@ public class NewInsertionActivity extends AppCompatActivity {
     // "pic_0", "pic_1", "pic_2", ...
     private void sortPictures(){
         for (int i = 0; i < pictures.getChildCount(); i++){
-            setElementId(pictures.getChildAt(i), "pic_" + i);
+            pictures.getChildAt(i).setTag("pic_" + i);
         }
-    }
-
-    private void setElementId(View v, String id){
-        v.setTag(id);
     }
 
     // Controlla che le informazioni siano state inserite correttamente

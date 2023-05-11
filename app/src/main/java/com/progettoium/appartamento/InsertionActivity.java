@@ -8,6 +8,7 @@ import com.progettoium.appartamento.shared.Shared;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -84,6 +85,12 @@ public class InsertionActivity extends AppCompatActivity {
         for(int i = 0; i < currentInsertion.pictures.size(); i++){
             picture = new ImageView(getApplicationContext());
             picture.setImageBitmap(currentInsertion.getPicture(i));
+            picture.setLayoutParams(new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT)
+            );
+            picture.setAdjustViewBounds(true);
+            picture.setScaleType(ImageView.ScaleType.CENTER_CROP);
             pictures.addView(picture);
         }
     }
