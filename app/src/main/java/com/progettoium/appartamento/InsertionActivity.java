@@ -32,7 +32,7 @@ public class InsertionActivity extends AppCompatActivity {
 
         city = findViewById(R.id.city);
         address = findViewById(R.id.address);
-        description = findViewById(R.id.descriptiom);
+        description = findViewById(R.id.description);
         name = findViewById(R.id.name);
         number = findViewById(R.id.number);
         email = findViewById(R.id.email);
