@@ -122,7 +122,7 @@ public class SearchActivity extends AppCompatActivity{
                             if(currentMarker == null){
                                 currentMarker = new Marker(map);
                                 currentMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                                currentMarker.setIcon(getResources().getDrawable(R.drawable.selectplace));
+                                currentMarker.setIcon(getResources().getDrawable(R.drawable.puntina));
                                 currentMarker.setPosition(geoPoint);
                                 currentMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
                                     @Override
