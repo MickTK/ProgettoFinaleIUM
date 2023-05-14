@@ -294,14 +294,14 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="24dp" />
+                android:layout_height="44dp" />
 
             <Button
                 android:id="@+id/changeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Modifica"
+                android:text="Conferma modifiche"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
