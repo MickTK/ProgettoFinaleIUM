@@ -115,7 +115,7 @@ public class NewInsertionActivity extends AppCompatActivity {
             for(int i = 0; i < currentInsertion.pictures.size(); i++){
                 pictures.addView(newPictureView(currentInsertion.getPicture(i), "pic_" + i));
             }
-            createInsertion.setText("Modifica annuncio");
+            createInsertion.setText("Pubblica modifiche");
         }
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
