@@ -50,7 +50,6 @@ public class EditAccountActivity extends AppCompatActivity {
         fpick = findViewById(R.id.fpick);
         fpickRemove = findViewById(R.id.fpickRemove);
         newpictureText = findViewById(R.id.newpictureText);
-        pictureBmp = null;
         newpictureImage = findViewById(R.id.newpictureImage);
         newpictureImage.setImageBitmap(user.getProfilePicture());
         changeButton = findViewById(R.id.changeButton);
