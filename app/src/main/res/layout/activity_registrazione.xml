@@ -250,19 +250,16 @@
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="14dp" />
 
             <ImageView android:id="@+id/pictureImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:maxHeight="400px"
+                android:maxWidth="400px"
+                android:minHeight="400px"
+                android:minWidth="400px"
                 android:visibility="gone"
-                android:maxHeight="300px"
-                android:maxWidth="300px"
-                android:minHeight="300px"
-                android:minWidth="300px"
+                android:layout_gravity="center"
                 android:scaleType="centerInside"
                 android:adjustViewBounds="true"/>
 
@@ -270,16 +267,17 @@
                 android:id="@+id/fpick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:text="Seleziona foto"
+                android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
             <Button
                 android:id="@+id/fpickRemove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
                 android:text="Rimuovi foto"
+                android:backgroundTint="@color/red"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
