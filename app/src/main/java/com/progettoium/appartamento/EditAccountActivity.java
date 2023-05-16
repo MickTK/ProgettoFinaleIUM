@@ -27,13 +27,12 @@ public class EditAccountActivity extends AppCompatActivity {
     TextView newpictureText;
     ImageView newpictureImage;
     Bitmap pictureBmp;
+    User user = Shared.userList.getCurrent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change);
-
-        User user = Shared.userList.getCurrent();
 
         newUsername = findViewById(R.id.newUsername);
         newUsername.setText(user.username);
@@ -304,7 +303,6 @@ public class EditAccountActivity extends AppCompatActivity {
     }
     // Crea e salva un nuovo utente nella lista degli utenti
     private void saveUser(){
-        User user = new User();
         user.username = newUsername.getText().toString();
         user.name = newName.getText().toString();
         user.surname = newSurname.getText().toString();
@@ -312,7 +310,6 @@ public class EditAccountActivity extends AppCompatActivity {
         user.email = newEmail.getText().toString();
         user.password = newPassw.getText().toString();
         user.setProfilePicture(pictureBmp);
-        Shared.userList.add(user);
     }
     // Cambia activity
     private void goToLogin(){
