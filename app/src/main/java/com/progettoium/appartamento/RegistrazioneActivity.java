@@ -240,6 +240,30 @@ public class RegistrazioneActivity extends AppCompatActivity {
             status = false;
             email.setError("Questo campo non può essere vuoto.");
         }
+        String mail = email.getText().toString();
+        String at = "@", dot = ".";
+        boolean hasAt = false, hasDot = false;
+        for (int i = 0; i < at.length(); i++) {
+            if (mail.indexOf(at.charAt(i)) >= 0) {
+                hasAt = true;
+                break;
+            }
+        }
+        if (!hasAt) {
+            status = false;
+            email.setError("L'email deve contenere una @");
+        }
+        for (int i = 0; i < dot.length(); i++) {
+            if (mail.indexOf(dot.charAt(i)) >= 0) {
+                hasDot = true;
+                break;
+            }
+        }
+        if (!hasDot) {
+            status = false;
+            email.setError("L'email deve contenere un .");
+        }
+
         // Controlla la password
         String pass = password1.getText().toString();
         String specialCharacters = "~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/";
