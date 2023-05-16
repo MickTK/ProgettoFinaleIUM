@@ -37,7 +37,6 @@
                 android:id="@+id/resultImage"
                 android:layout_marginTop="26dp"/>
 
-
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="40dp" />
@@ -197,18 +196,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="44dp" />
 
-            <TextView
+            <Button
+                android:id="@+id/changePwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:textSize="20dp"
-                android:textStyle="italic"
-                android:linksClickable="true"
-                android:textColor="@color/purple_700"
-                android:id="@+id/changePwd"
-                android:clickable="true"
-                android:text="@string/Modifica" />
+                android:text="Modifica dati"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

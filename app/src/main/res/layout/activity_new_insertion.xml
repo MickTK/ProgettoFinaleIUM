@@ -53,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                app:drawableStartCompat="@drawable/city"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
                 android:hint="Inserisci la città."
@@ -65,7 +66,6 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,6 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                app:drawableStartCompat="@drawable/home"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
                 android:hint="Inserisci la via e il numero civico."
@@ -107,6 +108,8 @@
                 android:layout_marginStart="10dp"
                 android:text="Foto:"
                 android:textColor="@color/black"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textSize="20dp" />
 
             <Space
@@ -129,14 +132,6 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
-            <Button
-                android:id="@+id/fpickRemove"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Rimuovi foto"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -160,8 +155,9 @@
                 android:layout_margin="4dp"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
-                android:maxLines="20"
+                app:drawableStartCompat="@drawable/pen"
                 android:hint="Inserisci una descrizione. Esempio: numero di stanze, mobili."
+                android:maxLines="20"
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
