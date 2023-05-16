@@ -51,6 +51,7 @@ public class EditAccountActivity extends AppCompatActivity {
         newpictureText = findViewById(R.id.newpictureText);
         newpictureImage = findViewById(R.id.newpictureImage);
         newpictureImage.setImageBitmap(user.getProfilePicture());
+        newpictureImage.setAdjustViewBounds(true);
         passw = findViewById(R.id.Passw);
         npassw = findViewById(R.id.NPassw);
 
@@ -245,6 +246,7 @@ public class EditAccountActivity extends AppCompatActivity {
                 pictureBmp = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                 newpictureImage.setImageBitmap(pictureBmp);
                 newpictureImage.setVisibility(View.VISIBLE);
+                newpictureImage.setAdjustViewBounds(true);
             } catch (IOException e) {
                 e.printStackTrace();
             }

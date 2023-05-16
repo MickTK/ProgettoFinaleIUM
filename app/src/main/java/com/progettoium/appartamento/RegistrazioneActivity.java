@@ -203,6 +203,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                 pictureBmp = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                 pictureImage.setImageBitmap(pictureBmp);
                 pictureImage.setVisibility(View.VISIBLE);
+                pictureImage.setAdjustViewBounds(true);
             } catch (IOException e) {
                 e.printStackTrace();
             }

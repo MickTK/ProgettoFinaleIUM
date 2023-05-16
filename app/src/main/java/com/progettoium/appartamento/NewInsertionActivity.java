@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,7 +42,6 @@ public class NewInsertionActivity extends AppCompatActivity {
     Insertion tempInsertion = new Insertion();
 
     boolean newInsertionMode;
-    boolean deletePicturesMode = false; // true se l'utente può cancellare le foto, altrimenti false
 
     EditText city, address, description;
     LinearLayout pictures;
@@ -56,10 +57,12 @@ public class NewInsertionActivity extends AppCompatActivity {
         if (currentInsertion == null){
             newInsertionMode = true;
             currentInsertion = new Insertion();
+            setTitle("Crea annuncio");
         }
         // L'activity viene usata per modificare un'inserzione esistente
         else{
             newInsertionMode = false;
+            setTitle("Modifica annuncio");
         }
 
         // Attributi
@@ -107,17 +110,17 @@ public class NewInsertionActivity extends AppCompatActivity {
         });
 
         // Se si sta modificando un'inserzione
-        ImageView pic;
+        RelativeLayout layout;
         if(!newInsertionMode){
             city.setText(currentInsertion.city);
             address.setText(currentInsertion.address);
             description.setText(currentInsertion.description);
             // Aggiunge le foto dell'annuncio
             for(int i = 0; i < currentInsertion.pictures.size(); i++){
-                pic = newPictureView(currentInsertion.getPicture(i), "pic_" + i);
-                pictures.addView(pic);
+                addPicture(currentInsertion.getPicture(i));
             }
-            createInsertion.setText("Pubblica modifiche");
+            sortPictures();
+            createInsertion.setText("Conferma modifiche");
         }
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,14 +179,12 @@ public class NewInsertionActivity extends AppCompatActivity {
                 uri = clipData.getItemAt(i).getUri();
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                    // Salva la nuova foto nell'inserzione
-                    tempInsertion.addPicture(bitmap);
-                    // Crea e aggiunge l'ImageView alla lista delle foto
-                    pictures.addView(newPictureView(bitmap, "pic_" + i));
+                    addPicture(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            sortPictures();
         }
     }
 
@@ -191,24 +192,26 @@ public class NewInsertionActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Shared.currentInsertion = null;
+        if (newInsertionMode)
+            Shared.currentInsertion = null;
     }
 
-    // Crea una ImageView da mostrare con una foto
-    private ImageView newPictureView(Bitmap bitmap, String id){
-        ImageView picture = new ImageView(getApplicationContext());
-        picture.setImageBitmap(bitmap);
-        picture.setTag(id);
-        picture.setOnClickListener(new View.OnClickListener() {
+    private View newPictureWrap(){
+        return getLayoutInflater().inflate(R.layout.photo, null);
+    }
+
+    private void addPicture(Bitmap bitmap){
+        RelativeLayout layout = (RelativeLayout) newPictureWrap();
+        ((ImageView)layout.findViewById(R.id.picture)).setImageBitmap(bitmap);
+        layout.findViewById(R.id.picture).setBackgroundColor(getColor(R.color.white));
+        layout.findViewById(R.id.x).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (deletePicturesMode){
-                    deletePictureOnClick(v);
-                    sortPictures();
-                }
+                deletePictureOnClick(v);
             }
         });
-        return picture;
+        pictures.addView(layout);
+        tempInsertion.addPicture(bitmap);
     }
 
     // Cancella la foto se cliccata in modalità di rimozione
@@ -222,7 +225,24 @@ public class NewInsertionActivity extends AppCompatActivity {
     // "pic_0", "pic_1", "pic_2", ...
     private void sortPictures(){
         for (int i = 0; i < pictures.getChildCount(); i++){
-            pictures.getChildAt(i).setTag("pic_" + i);
+            addTagToAllChildren(pictures.getChildAt(i), "pic_" + i);
+        }
+    }
+
+    private void addTagToAllChildren(View view, Object tag) {
+        // Aggiungi il tag alla vista corrente
+        view.setTag(tag);
+
+        // Verifica se la vista corrente è un ViewGroup e ha elementi figlio
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            int childCount = viewGroup.getChildCount();
+
+            // Itera attraverso tutti i figli e richiama la funzione ricorsivamente
+            for (int i = 0; i < childCount; i++) {
+                View child = viewGroup.getChildAt(i);
+                addTagToAllChildren(child, tag);
+            }
         }
     }
 

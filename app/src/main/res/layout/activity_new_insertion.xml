@@ -101,15 +101,16 @@
                 android:layout_height="12dp" />
 
             <!-- Informazioni da aggiungere -->
-
-            <TextView android:id="@+id/pictureText"
+            <TextView
+                android:id="@+id/pictureText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Foto:"
-                android:textColor="@color/black"
+                android:clickable="true"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
+                android:text="Foto:"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <Space
@@ -120,7 +121,7 @@
                 android:id="@+id/pictures"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
             </LinearLayout>
 
             <Button

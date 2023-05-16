@@ -6,6 +6,7 @@ import com.progettoium.appartamento.classes.Insertion;
 import com.progettoium.appartamento.classes.User;
 import com.progettoium.appartamento.shared.Shared;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 public class InsertionActivity extends AppCompatActivity {
     TextView city, address, description, name, number, email;
     LinearLayout pictures;
-    Button favourite;
+    Button favourite, modifyButton;
 
     User currentUser = Shared.userList.getCurrent();
     Insertion currentInsertion = Shared.currentInsertion;
@@ -38,6 +39,9 @@ public class InsertionActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         pictures = findViewById(R.id.pictures);
         favourite = findViewById(R.id.favorites);
+        modifyButton = findViewById(R.id.modifyButton);
+        if(!currentInsertion.owner.equals(currentUser.username))
+            modifyButton.setVisibility(View.GONE);
 
         city.setText(currentInsertion.city);
         address.setText(currentInsertion.address);
@@ -79,9 +83,21 @@ public class InsertionActivity extends AppCompatActivity {
                 }
             }
         });
+        modifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InsertionActivity.this, NewInsertionActivity.class));
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         /** Album fotografico */
         ImageView picture;
+        pictures.removeAllViews();
         for(int i = 0; i < currentInsertion.pictures.size(); i++){
             picture = new ImageView(getApplicationContext());
             picture.setImageBitmap(currentInsertion.getPicture(i));

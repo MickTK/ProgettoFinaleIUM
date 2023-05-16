@@ -98,7 +98,7 @@
                     android:layout_gravity="center"
                     android:id="@+id/logoutButton"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/blue"
+                    android:backgroundTint="@color/red"
                     android:textColor="@color/white"
                     android:text="Logout"
                     />

@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-186dp">
+        tools:layout_editor_absoluteX="-68dp"
+        tools:layout_editor_absoluteY="-352dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                 android:text=""
                 android:textColorHint="@color/black"
                 android:textSize="15dp"
-                app:drawableStartCompat="@drawable/ic_baseline_person_24"/>
+                app:drawableStartCompat="@drawable/ic_baseline_person_24" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -97,8 +97,8 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                app:drawableStartCompat="@drawable/ic_baseline_face_24"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_face_24" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -124,8 +124,8 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                app:drawableStartCompat="@drawable/ic_baseline_face_24"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_face_24" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -147,13 +147,13 @@
                 android:layout_margin="4dp"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
-                android:inputType="number"
                 android:hint="Inserisci il tuo numero di telefono"
-                app:drawableStartCompat="@drawable/ic_baseline_phone_24"
+                android:inputType="number"
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_phone_24" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -179,8 +179,8 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                app:drawableStartCompat="@drawable/ic_baseline_email_24"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_email_24" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -207,8 +207,8 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                app:drawableStartCompat="@drawable/ic_baseline_key_24"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -218,7 +218,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Conferma la password:"
+                android:text="Conferma password:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -235,55 +235,73 @@
                 android:padding="10dp"
                 android:text=""
                 android:textColorHint="@color/black"
-                app:drawableStartCompat="@drawable/ic_baseline_key_24"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="14dp" />
 
-            <TextView android:id="@+id/pictureText"
+            <TextView
+                android:id="@+id/pictureText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Immagine:"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="Foto:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
 
-            <ImageView android:id="@+id/pictureImage"
-                android:layout_width="200dp"
+            <ImageView
+                android:id="@+id/pictureImage"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:maxHeight="400px"
-                android:maxWidth="400px"
-                android:minHeight="400px"
-                android:minWidth="400px"
-                android:visibility="gone"
                 android:layout_gravity="center"
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:adjustViewBounds="true"/>
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/fpick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Seleziona foto"
-                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+
             <Button
                 android:id="@+id/fpickRemove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Rimuovi foto"
                 android:backgroundTint="@color/red"
+                android:text="Rimuovi foto"
+                android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"/>
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="24dp" />
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tutti i campi sono obbligatori."
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Le informazioni possono essere modificate in seguito."
+                android:layout_marginLeft="10dp"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
 
             <Button
                 android:id="@+id/signInButton"

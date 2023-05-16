@@ -240,29 +240,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="14dp" />
 
-
-            <TextView android:id="@+id/newpictureText"
+            <TextView
+                android:id="@+id/newpictureText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Immagine:"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="Foto:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="14dp" />
 
-            <ImageView android:id="@+id/newpictureImage"
-                android:layout_width="200dp"
+            <ImageView
+                android:id="@+id/newpictureImage"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:maxHeight="400px"
-                android:maxWidth="400px"
-                android:minHeight="400px"
-                android:minWidth="400px"
                 android:layout_gravity="center"
-                android:scaleType="centerInside"
-                android:adjustViewBounds="true"/>
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"/>
 
             <Space
                 android:layout_width="wrap_content"
@@ -273,28 +270,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Seleziona foto"
-                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+
             <Button
                 android:id="@+id/fpickRemove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/red"
                 android:text="Rimuovi foto"
-                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"/>
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="54dp" />
+                android:layout_height="10dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Password attuale:"
+                android:text="Inserisci la password attuale:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -339,10 +341,6 @@
                 android:textColorHint="@color/black"
                 app:drawableStartCompat="@drawable/ic_baseline_key_24"
                 android:textSize="15dp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="54dp" />
 
             <Button
                 android:id="@+id/changeButton"
