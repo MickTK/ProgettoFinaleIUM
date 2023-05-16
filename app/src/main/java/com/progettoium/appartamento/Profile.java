@@ -17,8 +17,9 @@ public class Profile extends AppCompatActivity {
 
     User user = Shared.userList.getCurrent();
 
-    TextView resultUsername, resultName, resultSurname, resultNum, resultEmail, editInfo;
+    TextView resultUsername, resultName, resultSurname, resultNum, resultEmail;
     ImageView image;
+    Button editInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
