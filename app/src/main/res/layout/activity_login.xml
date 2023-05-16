@@ -20,19 +20,14 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="150dp"
                 android:background="@color/blue"
-                android:src="@drawable/logo"
+                android:src="@drawable/appartamentologo"
                 />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_margin="30dp"
-                android:textColor="@color/black"
-                android:text="Accedi"
-                android:textSize="30dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="100dp" />
 
             <TextView
                 android:layout_width="wrap_content"

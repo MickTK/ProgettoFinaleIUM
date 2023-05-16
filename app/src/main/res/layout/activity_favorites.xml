@@ -16,9 +16,9 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:background="@color/celeste"
-                android:src="@drawable/logo"
+                android:layout_height="150dp"
+                android:background="@color/blue"
+                android:src="@drawable/appartamentologo"
                 />
 
             <Space
