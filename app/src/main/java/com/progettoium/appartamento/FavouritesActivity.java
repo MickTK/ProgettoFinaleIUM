@@ -31,10 +31,13 @@ public class FavouritesActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         insertionList.removeAllViews();
+        ImageView picture;
         // Mostra le anteprima cliccabili degli annunci preferiti
         for (Insertion insertion : currentUser.getFavourites()){
             preview = newPreview();
-            ((ImageView)preview.findViewById(R.id.picture)).setImageBitmap(insertion.getPicture(0));
+            picture = preview.findViewById(R.id.picture);
+            picture.setImageBitmap(insertion.getPicture(0));
+            picture.setBackgroundColor(getColor(R.color.white));
             ((TextView)preview.findViewById(R.id.description)).setText(insertion.city + "\n" + insertion.address);
             preview.setOnClickListener(new View.OnClickListener() {
                 @Override

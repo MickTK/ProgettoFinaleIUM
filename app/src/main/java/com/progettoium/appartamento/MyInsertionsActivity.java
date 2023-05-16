@@ -62,18 +62,30 @@ public class MyInsertionsActivity extends AppCompatActivity{
             preview.setTag("preview_" + i);
             // Recupera gli elementi dall'anteprima
             picture = preview.findViewById(R.id.picture);
-            //description = preview.findViewById(R.id.description);
+            description = preview.findViewById(R.id.description);
             deleteButton = preview.findViewById(R.id.deleteButton);
-            modifyButton = preview.findViewById(R.id.modifyButton);
             archiveButton = preview.findViewById(R.id.archiviaButton);
             // Imposta gli eventi dei pulsanti
             picture.setImageBitmap(insertion.getPicture(0));
-            //description.setText(insertion.city + " " + insertion.address);
+            picture.setBackgroundColor(getColor(R.color.white));
+            description.setText(insertion.city + "\n" + insertion.address);
+            description.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToInsertionOnClick(v);
+                }
+            });
+            picture.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToInsertionOnClick(v);
+                }
+            });
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String text = ((Button)v).getText().toString();
-                    String delete = "Conferma";
+                    String delete = "Conferma eliminazione";
                     // Il pulsante viene premuto per la prima volta
                     if (!text.equals(delete)){
                         ((Button)v).setText(delete);
@@ -82,12 +94,6 @@ public class MyInsertionsActivity extends AppCompatActivity{
                     else {
                         deleteInsertionOnClick(v);
                     }
-                }
-            });
-            modifyButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    modifyInsertionOnClick(v);
                 }
             });
             if(!insertion.status) archiveButton.setText("Pubblica");
@@ -126,10 +132,10 @@ public class MyInsertionsActivity extends AppCompatActivity{
     }
 
     // Rimanda all'activity per la modifica dell'inserzione
-    private void modifyInsertionOnClick(View v){
-        int index = Integer.parseInt(((LinearLayout)v.getParent()).getTag().toString().replace("preview_",""));
+    private void goToInsertionOnClick(View v){
+        int index = Integer.parseInt(((RelativeLayout)v.getParent()).getTag().toString().replace("preview_",""));
         Shared.currentInsertion = currentUser.insertions.get(index);
-        startActivity(new Intent(this, NewInsertionActivity.class));
+        startActivity(new Intent(this, InsertionActivity.class));
     }
 
     // Modifica lo stato di un'inserzione (archiviata, pubblica)
@@ -172,5 +178,4 @@ public class MyInsertionsActivity extends AppCompatActivity{
             }
         }
     }
-
 }

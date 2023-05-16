@@ -19,37 +19,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/favorites"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/blue"
-                android:drawableTop="@drawable/stella_piena" />
+                <Button
+                    android:id="@+id/favorites"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:backgroundTint="@color/blue"
+                    android:drawableTop="@drawable/stella_piena" />
 
-            <TextView
-                android:id="@+id/city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Città:"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Città:"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
 
-        </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/address"
@@ -125,6 +125,19 @@
                 android:text="Email: "
                 android:textColor="@color/black"
                 android:textSize="18dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/modifyButton"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/white"
+                android:text="Modifica annuncio"/>
 
         </LinearLayout>
     </ScrollView>

@@ -49,7 +49,7 @@ public class InsertionActivity extends AppCompatActivity {
         /** Pulsante dei preferiti */
         // Nasconde il pulsante se è il proprietario a visualizzare l'annuncio
         if (insertionOwner.username.equals(currentUser.username)){
-            favourite.setVisibility(View.INVISIBLE);
+            favourite.setVisibility(View.GONE);
         }
         // L'annuncio è tra i preferiti
         if (currentUser.isFavourite(currentInsertion)){

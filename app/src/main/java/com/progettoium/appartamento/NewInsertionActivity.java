@@ -13,6 +13,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -43,7 +44,7 @@ public class NewInsertionActivity extends AppCompatActivity {
 
     EditText city, address, description;
     LinearLayout pictures;
-    Button addPicture, removePicture, createInsertion;
+    Button addPicture, createInsertion;
     TextView pictureText, cancelOperation;
 
     @Override
@@ -68,7 +69,6 @@ public class NewInsertionActivity extends AppCompatActivity {
         pictures = findViewById(R.id.pictures);
         pictureText = findViewById(R.id.pictureText);
         addPicture = findViewById(R.id.fpick);
-        removePicture = findViewById(R.id.fpickRemove);
         createInsertion = findViewById(R.id.adsButton);
         cancelOperation = findViewById(R.id.back);
 
@@ -107,13 +107,15 @@ public class NewInsertionActivity extends AppCompatActivity {
         });
 
         // Se si sta modificando un'inserzione
+        ImageView pic;
         if(!newInsertionMode){
             city.setText(currentInsertion.city);
             address.setText(currentInsertion.address);
             description.setText(currentInsertion.description);
             // Aggiunge le foto dell'annuncio
             for(int i = 0; i < currentInsertion.pictures.size(); i++){
-                pictures.addView(newPictureView(currentInsertion.getPicture(i), "pic_" + i));
+                pic = newPictureView(currentInsertion.getPicture(i), "pic_" + i);
+                pictures.addView(pic);
             }
             createInsertion.setText("Pubblica modifiche");
         }
@@ -125,19 +127,6 @@ public class NewInsertionActivity extends AppCompatActivity {
                 gallery.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 startActivityForResult(gallery, PICK_IMAGE);
                 pictureText.setError(null);
-            }
-        });
-        removePicture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(deletePicturesMode){
-                    deletePicturesMode = false;
-                    removePicture.setText("Rimuovi foto");
-                }
-                else{
-                    deletePicturesMode = true;
-                    removePicture.setText("Blocca foto");
-                }
             }
         });
         createInsertion.setOnClickListener(new View.OnClickListener() {
@@ -251,6 +240,10 @@ public class NewInsertionActivity extends AppCompatActivity {
         if (pictures.getChildCount() < 1){
             status = false;
             pictureText.setError("Devi caricare almeno un'immagine.");
+        }
+        if (description.getText().toString().equals("")){
+            status = false;
+            description.setError("Questo campo non può essere vuoto.\nCerca di includere tutte le informazioni relative all'alloggio.");
         }
         return status;
     }

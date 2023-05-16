@@ -6,62 +6,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
-    <!-- TextView per la città -->
+    <!-- Descrizione -->
     <TextView
-        android:id="@+id/city"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="Città:"
+        android:text="Città\nIndirizzo"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_below="@id/city"
-        android:text="Indirizzo:"
-        android:textColor="@color/black"
-        android:textSize="25dp" />
-
-    <Space
-        android:layout_width="10dp"
-        android:layout_height="10dp" />
-
-    <!-- ImageView per l'immagine -->
+    <!-- Foto -->
     <ImageView
         android:id="@+id/picture"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:layout_marginStart="5dp"
-        android:layout_below="@id/address"
+        android:layout_below="@id/description"
         android:background="@color/black"/>
 
-    <Space
-        android:layout_width="10dp"
-        android:layout_height="10dp" />
-
-
-    <!-- Linear layout per i bottoni -->
+    <!-- Pulsanti -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/picture"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <Button
-            android:id="@+id/modifyButton"
+            android:id="@+id/archiviaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/celeste"
-            android:text="Modifica"
+            android:backgroundTint="@color/blue"
+            android:text="Archivia"
             android:textAllCaps="false"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
         <Space
             android:layout_width="10dp"
@@ -72,24 +54,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/celeste"
+            android:backgroundTint="@color/red"
             android:text="Elimina"
             android:textAllCaps="false"
-            android:textColor="@color/black" />
-
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="10dp" />
-
-        <Button
-            android:id="@+id/archiviaButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/celeste"
-            android:text="Archivia"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
+
 </RelativeLayout>
