@@ -190,7 +190,7 @@ public class EditAccountActivity extends AppCompatActivity {
                 if (checkInformations()){         // Controllo input
                     saveUser();                   // Crea e salva l'oggetto utente
                     Shared.saveApplicationData(); // Salva i dati dell'applicazione
-                    goToLogin();                  // Cambia activity
+                    goToHome();                  // Cambia activity
                 }
             }
         });
@@ -245,6 +245,29 @@ public class EditAccountActivity extends AppCompatActivity {
         if (newEmail.getText().toString().equals("")){
             status = false;
             newEmail.setError("Questo campo non può essere vuoto.");
+        }
+        String mail = newEmail.getText().toString();
+        String at = "@", dot = ".";
+        boolean hasAt = false, hasDot = false;
+        for (int i = 0; i < at.length(); i++) {
+            if (mail.indexOf(at.charAt(i)) >= 0) {
+                hasAt = true;
+                break;
+            }
+        }
+        if (!hasAt) {
+            status = false;
+            newEmail.setError("L'email deve contenere una @");
+        }
+        for (int i = 0; i < dot.length(); i++) {
+            if (mail.indexOf(dot.charAt(i)) >= 0) {
+                hasDot = true;
+                break;
+            }
+        }
+        if (!hasDot) {
+            status = false;
+            newEmail.setError("L'email deve contenere un .");
         }
         // Controlla la password
         String pass = newPassw.getText().toString();
@@ -312,7 +335,7 @@ public class EditAccountActivity extends AppCompatActivity {
         user.setProfilePicture(pictureBmp);
     }
     // Cambia activity
-    private void goToLogin(){
-        startActivity(new Intent(this, LoginActivity.class));
+    private void goToHome(){
+        startActivity(new Intent(this, HomeActivity.class));
     }
 }
