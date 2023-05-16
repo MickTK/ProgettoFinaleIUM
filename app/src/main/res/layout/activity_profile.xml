@@ -20,21 +20,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:background="@color/celeste"
+                android:background="@color/blue"
                 android:src="@drawable/logo"
                 />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Benvenuto!"
-                android:layout_gravity="left"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:id="@+id/welcome"  />
-
 
             <Space
                 android:layout_width="wrap_content"
@@ -218,9 +206,10 @@
                 android:textSize="20dp"
                 android:textStyle="italic"
                 android:linksClickable="true"
+                android:textColor="@color/purple_700"
                 android:id="@+id/changePwd"
                 android:clickable="true"
-                android:text="Modifica dati" />
+                android:text="@string/Modifica" />
 
 
 

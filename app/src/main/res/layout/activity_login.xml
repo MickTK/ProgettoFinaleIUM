@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:background="@color/celeste"
+                android:background="@color/blue"
                 android:src="@drawable/logo"
                 />
 
@@ -99,39 +99,14 @@
                 android:layout_width="140dp"
                 android:layout_height="54dp"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/celeste"
+                android:backgroundTint="@color/blue"
                 android:text="Accedi"
                 android:textAllCaps="false"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="o"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:textSize="20dp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
-
-            <!-- Se vogliamo farlo con il bottone anziche' link
-                        <Button
-                            android:id="@+id/signInButton"
-                            android:layout_width="140dp"
-                            android:layout_height="54dp"
-                            android:layout_gravity="center_horizontal"
-                            android:backgroundTint="@color/bluscuro"
-                            android:text="Registrati"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white" />
-            -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -144,7 +119,7 @@
                 android:linksClickable="true"
                 android:id="@+id/signIn"
                 android:clickable="true"
-                android:text="Non hai un account? Registrati!" />
+                android:text="@string/Registrati" />
 
         </LinearLayout>
 

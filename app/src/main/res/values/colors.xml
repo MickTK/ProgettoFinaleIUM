@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="celeste">#86F8FF</color>
     <color name="blu">#5A98FC</color>
+    <color name="blue">#3454D1 </color>
+    <color name="red">#C5283D</color>
+    <color name="green">#02B64D</color>
+
 </resources>

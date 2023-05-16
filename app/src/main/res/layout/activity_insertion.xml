@@ -15,14 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:background="@color/celeste"
-                android:src="@drawable/logo"
-                />
-
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -32,7 +24,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!-- Da cambiare in relazione alla pagina di inserimento dei dati dell'annuncio-->
+            <Button
+                android:id="@+id/favorites"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/blue"
+                android:drawableTop="@drawable/stella_piena" />
+
             <TextView
                 android:id="@+id/city"
                 android:layout_width="wrap_content"
@@ -45,14 +44,6 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="10dp" />
-
-            <Button
-                android:id="@+id/favorites"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/purple_700"
-                android:drawableTop="@drawable/stella_piena" />
 
             <Space
                 android:layout_width="wrap_content"

@@ -19,21 +19,13 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:background="@color/celeste"
+                    android:background="@color/blue"
                     android:src="@drawable/logo"
                     />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Home"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:layout_gravity="center"/>
 
                 <Space
                     android:layout_width="match_parent"
@@ -45,8 +37,8 @@
                     android:layout_gravity="center"
                     android:id="@+id/annunciButton"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/celeste"
-                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@color/white"
                     android:text="Visualizza annunci"
                     />
 
@@ -60,8 +52,8 @@
                     android:layout_gravity="center"
                     android:id="@+id/prefeButton"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/celeste"
-                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@color/white"
                     android:text="Preferiti"
                     />
 
@@ -76,8 +68,8 @@
                     android:layout_gravity="center"
                     android:id="@+id/ownButton"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/celeste"
-                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@color/white"
                     android:text="I miei annunci"
                     />
 
@@ -91,14 +83,14 @@
                     android:layout_gravity="center"
                     android:id="@+id/profileButton"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/celeste"
-                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@color/white"
                     android:text="I miei dati"
                     />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
+                    android:layout_height="100dp" />
 
                 <Button
                     android:layout_width="140dp"
@@ -106,17 +98,13 @@
                     android:layout_gravity="center"
                     android:id="@+id/logoutButton"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/celeste"
-                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@color/white"
                     android:text="Logout"
                     />
-                <!-- Colore dei bottoni provvisorio -->
-
 
             </LinearLayout>
 
         </ScrollView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

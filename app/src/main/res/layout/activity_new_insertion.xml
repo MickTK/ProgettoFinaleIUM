@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:background="@color/celeste"
+                android:background="@color/blue"
                 android:src="@drawable/logo"
                 />
 
@@ -179,8 +179,8 @@
                 android:layout_gravity="center"
                 android:id="@+id/adsButton"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/celeste"
-                android:textColor="@color/black"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/white"
                 android:text="Crea annuncio" />
 
             <Space
@@ -196,8 +196,9 @@
                 android:textStyle="italic"
                 android:linksClickable="true"
                 android:id="@+id/back"
+                android:textColor="@color/purple_700"
                 android:clickable="true"
-                android:text="Annulla" />
+                android:text="@string/Annulla"/>
 
             <!-- Colore dei bottoni provvisorio -->
 

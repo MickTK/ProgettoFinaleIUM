@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProgettoIUM</string>
+    <string name="Registrati"> <u> Non hai un account? Registrati! </u> </string>
+    <string name="Annulla"> <u> Annulla </u> </string>
+    <string name="Modifica"> <u> Modifica dati </u> </string>
+
 </resources>
