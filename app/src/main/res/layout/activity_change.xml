@@ -186,12 +186,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="14dp" />
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Password:"
+                android:text="Nuova Password:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -201,9 +200,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/white"
-
                 android:drawablePadding="10dp"
-                android:hint="Inserisci la password"
+                android:hint="Inserisci la nuova password"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:text=""
@@ -219,7 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Conferma la password:"
+                android:text="Conferma la nuova password:"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -229,9 +227,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:background="@color/white"
-
                 android:drawablePadding="10dp"
-                android:hint="Conferma password"
+                android:hint="Conferma nuova password"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:text=""
@@ -242,6 +239,7 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="14dp" />
+
 
             <TextView android:id="@+id/newpictureText"
                 android:layout_width="wrap_content"
@@ -287,7 +285,61 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="44dp" />
+                android:layout_height="54dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Password attuale:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/Passw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Inserisci la password attuale"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Conferma la password:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/NPassw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:drawablePadding="10dp"
+                android:hint="Conferma password attuale"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text=""
+                android:textColorHint="@color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_key_24"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="54dp" />
 
             <Button
                 android:id="@+id/changeButton"
