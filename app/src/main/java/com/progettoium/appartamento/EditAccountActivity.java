@@ -22,7 +22,7 @@ import java.io.IOException;
 
 public class EditAccountActivity extends AppCompatActivity {
 
-    EditText newUsername, newName, newSurname, newNumber, newEmail, newPassw, newNPassw;
+    EditText newUsername, newName, newSurname, newNumber, newEmail, newPassw, newNPassw, passw, npassw;
     Button fpick, fpickRemove, changeButton;
     TextView newpictureText;
     ImageView newpictureImage;
@@ -51,6 +51,9 @@ public class EditAccountActivity extends AppCompatActivity {
         newpictureText = findViewById(R.id.newpictureText);
         newpictureImage = findViewById(R.id.newpictureImage);
         newpictureImage.setImageBitmap(user.getProfilePicture());
+        passw = findViewById(R.id.Passw);
+        npassw = findViewById(R.id.NPassw);
+
         changeButton = findViewById(R.id.changeButton);
 
         // Eventi
@@ -68,8 +71,11 @@ public class EditAccountActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 newUsername.setError(null);
-                if (Shared.userList.exists(newUsername.getText().toString()))
-                    newUsername.setError("Nome utente non disponibile.");
+                if(!newUsername.getText().toString().matches(user.username)){
+                    if (Shared.userList.exists(newUsername.getText().toString())){
+                        newUsername.setError("Nome utente non disponibile.");
+                    }
+                }
             }
         });
         newName.addTextChangedListener(new TextWatcher() {
@@ -168,6 +174,36 @@ public class EditAccountActivity extends AppCompatActivity {
                 newNPassw.setError(null);
             }
         });
+        passw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {passw.setError(null);}
+        });
+        npassw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                npassw.setError(null);
+            }
+        });
         fpick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -222,9 +258,11 @@ public class EditAccountActivity extends AppCompatActivity {
         boolean status = true;
 
         // Controlla il nome utente
-        if (Shared.userList.exists(newUsername.getText().toString())){
-            status = false;
-            newUsername.setError("Nome utente non disponibile.");
+        if(!newUsername.getText().toString().matches(user.username)){
+            if (Shared.userList.exists(newUsername.getText().toString())){
+                status = false;
+                newUsername.setError("Nome utente non disponibile.");
+            }
         }
         // Controlla il nome
         if (newName.getText().toString().equals("")){
@@ -314,12 +352,24 @@ public class EditAccountActivity extends AppCompatActivity {
         if (!newNPassw.getText().toString().equals(pass)){
             status = false;
             newNPassw.setText("");
-            newNPassw.setError("La password non coindice.");
+            newNPassw.setError("La password non coincide.");
         }
         // Controlla l'immagine del profilo
         if (pictureBmp == null){
             status = false;
             newpictureText.setError("Questo campo non può essere vuoto.");
+        }
+        // Controllo vecchia password
+        String oldPassw = user.password;
+        if (!passw.getText().toString().equals(oldPassw)){
+            status = false;
+            passw.setText("");
+            passw.setError("La password non coincide.");
+        }
+        if (!npassw.getText().toString().equals(oldPassw)){
+            status = false;
+            npassw.setText("");
+            npassw.setError("La password non coincide.");
         }
 
         return status;
