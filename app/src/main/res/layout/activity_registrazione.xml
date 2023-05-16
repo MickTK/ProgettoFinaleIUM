@@ -28,7 +28,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Inserisci i tuoi dati:"
-
                 android:textColor="@color/black"
                 android:textSize="25dp" />
 

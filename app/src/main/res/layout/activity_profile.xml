@@ -48,13 +48,13 @@
                 android:text="Username:"
                 android:textColor="@color/black"
                 android:layout_marginStart="10dp"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultUsername"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_margin="4dp"
                 android:padding="10dp"
                 android:textColorHint="@color/black"
@@ -71,14 +71,14 @@
                 android:textColor="@color/black"
                 android:layout_marginStart="10dp"
                 android:visibility="gone"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultPassw"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_margin="4dp"
                 android:visibility="gone"
                 android:padding="10dp"
@@ -100,13 +100,13 @@
                 android:text="Nome:"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultName"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_margin="4dp"
                 android:padding="10dp"
                 android:textColorHint="@color/black"
@@ -115,7 +115,6 @@
                 android:text=""
                 app:drawableStartCompat="@drawable/ic_baseline_face_24"
                 />
-
 
             <Space
                 android:layout_width="wrap_content"
@@ -127,13 +126,13 @@
                 android:text="Cognome:"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultSurname"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_margin="4dp"
                 android:padding="10dp"
                 android:textColorHint="@color/black"
@@ -153,13 +152,13 @@
                 android:text="Numero di telefono:"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultNum"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_margin="4dp"
                 android:padding="10dp"
                 android:textColorHint="@color/black"
@@ -179,13 +178,13 @@
                 android:text="Email:"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultEmail"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_margin="4dp"
                 android:padding="10dp"
                 android:textColorHint="@color/black"
@@ -210,8 +209,6 @@
                 android:id="@+id/changePwd"
                 android:clickable="true"
                 android:text="@string/Modifica" />
-
-
 
         </LinearLayout>
 
