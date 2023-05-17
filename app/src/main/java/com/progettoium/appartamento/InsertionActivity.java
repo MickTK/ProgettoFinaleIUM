@@ -43,8 +43,8 @@ public class InsertionActivity extends AppCompatActivity {
         if(!currentInsertion.owner.equals(currentUser.username))
             modifyButton.setVisibility(View.GONE);
 
-        city.setText(currentInsertion.city);
-        address.setText(currentInsertion.address);
+        city.setText(city.getText() + currentInsertion.city);
+        address.setText(address.getText() + currentInsertion.address);
         description.setText(currentInsertion.description);
         name.setText(name.getText() + insertionOwner.name + " " + insertionOwner.surname);
         number.setText(number.getText() + insertionOwner.number);

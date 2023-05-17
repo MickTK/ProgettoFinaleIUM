@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.progettoium.appartamento.R;
+import com.progettoium.appartamento.classes.User;
 import com.progettoium.appartamento.shared.Shared;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button viewAds, favorites, insertAd, myAds, myInfo, logout;
+    Button viewAds, favorites, myAds, myInfo, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +38,6 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, FavouritesActivity.class));
             }
         });
-       /* insertAd.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(HomeActivity.this, Profile.class));
-            }
-        });
-
-        */
         myAds.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(HomeActivity.this, MyInsertionsActivity.class));
@@ -56,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         logout.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                Shared.userList.setCurrent((User) null);
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             }
         });

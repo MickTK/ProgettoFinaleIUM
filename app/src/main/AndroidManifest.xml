@@ -73,7 +73,7 @@
         <activity
             android:name=".InsertionActivity"
             android:exported="false"
-            android:label="Viasualizza annuncio">
+            android:label="Visualizza annuncio">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

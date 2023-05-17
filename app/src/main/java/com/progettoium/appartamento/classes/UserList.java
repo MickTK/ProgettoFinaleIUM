@@ -3,7 +3,7 @@ package com.progettoium.appartamento.classes;
 import java.util.ArrayList;
 
 public class UserList extends ArrayList<User> {
-    private User current = null;
+    private User current;
 
     // Costruttore
     public UserList(){

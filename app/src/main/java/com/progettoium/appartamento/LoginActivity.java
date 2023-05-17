@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         // Il nome utente e la password sono corretti
         if (Shared.userList.exists(username.getText().toString(), passw.getText().toString())){
             Shared.userList.setCurrent(username.getText().toString());
+            Shared.saveApplicationData();
             startActivity(new Intent(this, HomeActivity.class));
         }
         // Il nome utente è corretto ma non la password

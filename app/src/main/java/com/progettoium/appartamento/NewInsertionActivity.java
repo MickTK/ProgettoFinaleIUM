@@ -219,6 +219,7 @@ public class NewInsertionActivity extends AppCompatActivity {
         int index = Integer.parseInt(v.getTag().toString().replace("pic_",""));
         pictures.removeViewAt(index);
         tempInsertion.pictures.remove(index);
+        sortPictures();
     }
 
     // Riordina le foto per farle coincidere con l'indice della lista
