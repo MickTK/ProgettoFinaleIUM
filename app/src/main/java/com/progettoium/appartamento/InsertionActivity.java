@@ -43,9 +43,6 @@ public class InsertionActivity extends AppCompatActivity {
         if(!currentInsertion.owner.equals(currentUser.username))
             modifyButton.setVisibility(View.GONE);
 
-        city.setText(city.getText() + currentInsertion.city);
-        address.setText(address.getText() + currentInsertion.address);
-        description.setText(currentInsertion.description);
         name.setText(name.getText() + insertionOwner.name + " " + insertionOwner.surname);
         number.setText(number.getText() + insertionOwner.number);
         email.setText(email.getText() + insertionOwner.email);
@@ -94,6 +91,10 @@ public class InsertionActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        city.setText("Città: " + currentInsertion.city);
+        address.setText("Indirizzo: " + currentInsertion.address);
+        description.setText(currentInsertion.description);
 
         /** Album fotografico */
         ImageView picture;
