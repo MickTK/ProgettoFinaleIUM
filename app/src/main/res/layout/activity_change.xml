@@ -328,6 +328,22 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                android:linksClickable="true"
+                android:id="@+id/back"
+                android:textColor="@color/purple_700"
+                android:clickable="true"
+                android:text="@string/Annulla"/>
 
         </LinearLayout>
 
