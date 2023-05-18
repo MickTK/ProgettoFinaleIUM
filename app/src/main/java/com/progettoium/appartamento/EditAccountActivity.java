@@ -22,7 +22,7 @@ import java.io.IOException;
 
 public class EditAccountActivity extends AppCompatActivity {
 
-    EditText newUsername, newName, newSurname, newNumber, newEmail, newPassw, newNPassw, passw, npassw;
+    EditText newUsername, newName, newSurname, newNumber, newEmail, newPassw, newNPassw, passw;
     Button fpick, fpickRemove, changeButton;
     TextView newpictureText;
     ImageView newpictureImage;
@@ -53,7 +53,6 @@ public class EditAccountActivity extends AppCompatActivity {
         newpictureImage.setImageBitmap(user.getProfilePicture());
         newpictureImage.setAdjustViewBounds(true);
         passw = findViewById(R.id.Passw);
-        npassw = findViewById(R.id.NPassw);
 
         changeButton = findViewById(R.id.changeButton);
 
@@ -188,22 +187,6 @@ public class EditAccountActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {passw.setError(null);}
-        });
-        npassw.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                npassw.setError(null);
-            }
         });
         fpick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -367,11 +350,6 @@ public class EditAccountActivity extends AppCompatActivity {
             status = false;
             passw.setText("");
             passw.setError("La password non coincide.");
-        }
-        if (!npassw.getText().toString().equals(oldPassw)){
-            status = false;
-            npassw.setText("");
-            npassw.setError("La password non coincide.");
         }
 
         return status;
