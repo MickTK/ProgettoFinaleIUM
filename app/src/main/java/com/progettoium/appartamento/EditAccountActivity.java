@@ -24,7 +24,7 @@ public class EditAccountActivity extends AppCompatActivity {
 
     EditText newUsername, newName, newSurname, newNumber, newEmail, newPassw, newNPassw, passw;
     Button fpick, fpickRemove, changeButton;
-    TextView newpictureText;
+    TextView newpictureText, cancel;
     ImageView newpictureImage;
     Bitmap pictureBmp;
     User user = Shared.userList.getCurrent();
@@ -52,7 +52,9 @@ public class EditAccountActivity extends AppCompatActivity {
         newpictureImage = findViewById(R.id.newpictureImage);
         newpictureImage.setImageBitmap(user.getProfilePicture());
         newpictureImage.setAdjustViewBounds(true);
+        pictureBmp = Shared.userList.getCurrent().getProfilePicture();
         passw = findViewById(R.id.Passw);
+        cancel = findViewById(R.id.back);
 
         changeButton = findViewById(R.id.changeButton);
 
@@ -214,8 +216,11 @@ public class EditAccountActivity extends AppCompatActivity {
                 }
             }
         });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {onBackPressed();}
+        });
     }
-
 
     // Salva l'immagine selezionata
     @Override
@@ -239,33 +244,33 @@ public class EditAccountActivity extends AppCompatActivity {
     }
     // Controlla se tutti i dati inseriti nel form sono corretti
     // @return true se tutti i dati sono corretti, altrimenti false
-    private boolean checkInformations(){
+    private boolean checkInformations() {
         boolean status = true;
 
         // Controlla il nome utente
-        if(!newUsername.getText().toString().matches(user.username)){
-            if (Shared.userList.exists(newUsername.getText().toString())){
+        if (!newUsername.getText().toString().matches(user.username)) {
+            if (Shared.userList.exists(newUsername.getText().toString())) {
                 status = false;
                 newUsername.setError("Nome utente non disponibile.");
             }
         }
         // Controlla il nome
-        if (newName.getText().toString().equals("")){
+        if (newName.getText().toString().equals("")) {
             status = false;
             newName.setError("Questo campo non può essere vuoto.");
         }
         // Controlla il cognome
-        if (newSurname.getText().toString().equals("")){
+        if (newSurname.getText().toString().equals("")) {
             status = false;
             newSurname.setError("Questo campo non può essere vuoto.");
         }
         // Controlla il numero di telefono
-        if (newNumber.getText().toString().equals("")){
+        if (newNumber.getText().toString().equals("")) {
             status = false;
             newNumber.setError("Questo campo non può essere vuoto.");
         }
         // Controlla la email
-        if (newEmail.getText().toString().equals("")){
+        if (newEmail.getText().toString().equals("")) {
             status = false;
             newEmail.setError("Questo campo non può essere vuoto.");
         }
@@ -292,45 +297,43 @@ public class EditAccountActivity extends AppCompatActivity {
             status = false;
             newEmail.setError("L'email deve contenere un .");
         }
-        // Controlla la password
+        // Controlli nuova password
         String pass = newPassw.getText().toString();
         String specialCharacters = "~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/";
-        if (pass.equals("")){
-            status = false;
-            newPassw.setError("Questo campo non può essere vuoto.");
-        }
-        // Lunghezza (minimo 8 caratteri)
-        else if (pass.length() < 8){
-            status = false;
-            newPassw.setError("La password deve essere lunga almeno 8 caratteri.");
-        }
-        // Lettera minuscola
-        else if (!pass.matches(".*[a-z].*")){
-            status = false;
-            newPassw.setError("La password deve contenere almeno una lettera minuscola.");
-        }
-        // Lettera maiuscola
-        else if (!pass.matches(".*[A-Z].*")){
-            status = false;
-            newPassw.setError("La password deve contenere almeno una lettera maiuscola.");
-        }
-        // Numero
-        else if (!pass.matches(".*[0-9].*")){
-            status = false;
-            newPassw.setError("La password deve contenere almeno un numero.");
-        }
-        // Carattere speciale
-        else {
-            boolean hasSpecialCharacter = false;
-            for (int i = 0; i < specialCharacters.length(); i++) {
-                if (pass.indexOf(specialCharacters.charAt(i)) >= 0) {
-                    hasSpecialCharacter = true;
-                    break;
-                }
-            }
-            if (!hasSpecialCharacter) {
+        if(!newPassw.getText().toString().equals("")){
+            // Lunghezza (minimo 8 caratteri)
+            if (pass.length() < 8) {
                 status = false;
-                newPassw.setError("La password deve contenere almeno un carattere speciale.");
+                newPassw.setError("La password deve essere lunga almeno 8 caratteri.");
+            }
+            // Lettera minuscola
+            else if (!pass.matches(".*[a-z].*")) {
+                status = false;
+                newPassw.setError("La password deve contenere almeno una lettera minuscola.");
+            }
+            // Lettera maiuscola
+            else if (!pass.matches(".*[A-Z].*")) {
+                status = false;
+                newPassw.setError("La password deve contenere almeno una lettera maiuscola.");
+            }
+            // Numero
+            else if (!pass.matches(".*[0-9].*")) {
+                status = false;
+                newPassw.setError("La password deve contenere almeno un numero.");
+            }
+            // Carattere speciale
+            else {
+                boolean hasSpecialCharacter = false;
+                for (int i = 0; i < specialCharacters.length(); i++) {
+                    if (pass.indexOf(specialCharacters.charAt(i)) >= 0) {
+                        hasSpecialCharacter = true;
+                        break;
+                    }
+                }
+                if (!hasSpecialCharacter) {
+                    status = false;
+                    newPassw.setError("La password deve contenere almeno un carattere speciale.");
+                }
             }
         }
         // Controlla la conferma della password
@@ -351,7 +354,6 @@ public class EditAccountActivity extends AppCompatActivity {
             passw.setText("");
             passw.setError("La password non coincide.");
         }
-
         return status;
     }
     // Crea e salva un nuovo utente nella lista degli utenti
@@ -361,7 +363,9 @@ public class EditAccountActivity extends AppCompatActivity {
         user.surname = newSurname.getText().toString();
         user.number = newNumber.getText().toString();
         user.email = newEmail.getText().toString();
-        user.password = newPassw.getText().toString();
+        if(!newPassw.getText().toString().equals("")){
+            user.password = newPassw.getText().toString();
+        }
         user.setProfilePicture(pictureBmp);
     }
     // Cambia activity
