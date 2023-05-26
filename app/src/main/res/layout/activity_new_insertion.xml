@@ -157,7 +157,7 @@
                 android:background="@color/white"
                 android:drawablePadding="10dp"
                 app:drawableStartCompat="@drawable/pen"
-                android:hint="Inserisci una descrizione. Esempio: numero di stanze, mobili."
+                android:hint="Inserisci una descrizione.\nEsempio: informazioni sul posto, stanze, numero di camere, etc."
                 android:maxLines="20"
                 android:padding="10dp"
                 android:text=""

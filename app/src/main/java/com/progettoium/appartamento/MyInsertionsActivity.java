@@ -68,7 +68,7 @@ public class MyInsertionsActivity extends AppCompatActivity{
             // Imposta gli eventi dei pulsanti
             picture.setImageBitmap(insertion.getPicture(0));
             picture.setBackgroundColor(getColor(R.color.white));
-            description.setText(insertion.city + "\n" + insertion.address);
+            description.setText("Città: " + insertion.city + "\n" + "Indirizzo: " + insertion.address);
             description.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

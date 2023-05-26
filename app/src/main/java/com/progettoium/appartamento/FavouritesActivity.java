@@ -38,7 +38,7 @@ public class FavouritesActivity extends AppCompatActivity {
             picture = preview.findViewById(R.id.picture);
             picture.setImageBitmap(insertion.getPicture(0));
             picture.setBackgroundColor(getColor(R.color.white));
-            ((TextView)preview.findViewById(R.id.description)).setText(insertion.city + "\n" + insertion.address);
+            ((TextView)preview.findViewById(R.id.description)).setText("Città: " + insertion.city + "\n" + "Indirizzo: " + insertion.address);
             preview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
